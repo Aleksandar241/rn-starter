@@ -1,0 +1,9 @@
+fragment LaunchDetails on Launch {
+  mission_name
+  rocket {
+    rocket_name
+    rocket_type
+  }
+  details
+  launch_date_utc
+}

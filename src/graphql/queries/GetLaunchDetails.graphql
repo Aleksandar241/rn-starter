@@ -1,0 +1,12 @@
+query GetLaunchDetails($id: ID!) {
+  launch(id: $id) {
+    ...LaunchDetails
+    launch_site {
+      site_name
+    }
+    links {
+      article_link
+      video_link
+    }
+  }
+}

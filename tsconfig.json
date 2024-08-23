@@ -1,0 +1,24 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "paths": {
+      "@types": ["./src/types"],
+      "@components": ["./src/components"],
+      "@theme": ["./src/theme"],
+      "@hooks": ["./src/hooks"],
+      "@utils": ["./src/utils"],
+      "@icons": ["./assets/icons"],
+      "@navigation": ["./src/navigation"],
+      "@features/*": ["./src/features/*"],
+      "@services": ["./src/services"],
+      "@constants": ["./src/constants"],
+      "@translations": ["./src/translations"],
+      "@stores": ["./src/stores"],
+      "@e2e": ["./e2e"],
+      "@graphql": ["./src/graphql"],
+      "@tests": ["./tests"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx", "app.config.js", "e2e/server.mjs"]
+}

@@ -1,0 +1,6 @@
+query GetLaunches {
+  launches {
+    id
+    ...LaunchDetails
+  }
+}
