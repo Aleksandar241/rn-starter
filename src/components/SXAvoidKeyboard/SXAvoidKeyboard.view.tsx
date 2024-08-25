@@ -4,7 +4,7 @@ import Animated from 'react-native-reanimated';
 import type {SXAvoidKeyboardProps} from './types';
 import useViewModel from './useViewModel';
 
-const SXButton: SXAvoidKeyboardProps = ({
+const SXAvoidKeyboard: SXAvoidKeyboardProps = ({
   testID = 'SX-AVOID-KEYBOARD',
   children,
   style,
@@ -19,4 +19,4 @@ const SXButton: SXAvoidKeyboardProps = ({
   );
 };
 
-export default SXButton;
+export default SXAvoidKeyboard;

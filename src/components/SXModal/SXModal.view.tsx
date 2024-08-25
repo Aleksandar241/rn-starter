@@ -3,6 +3,7 @@ import {Modal, View} from 'react-native';
 import {GestureDetector} from 'react-native-gesture-handler';
 import Animated, {FadeIn, FadeOut, SlideInDown} from 'react-native-reanimated';
 
+import {SXAvoidKeyboard} from '../SXAvoidKeyboard';
 import {SXIcon} from '../SXIcon';
 import styles from './styles';
 import type {SXModalProps} from './types';
@@ -13,6 +14,7 @@ const SXModal: SXModalProps = ({
   isVisible,
   hasCloseIcon = true,
   children,
+  keyboardOffset = 0,
   contentContainerStyle,
   onHide,
 }) => {
@@ -44,7 +46,13 @@ const SXModal: SXModalProps = ({
               <View style={styles.closeIconContainer}>
                 {hasCloseIcon && <SXIcon icon="close" onPress={onClose} />}
               </View>
-              {children}
+              {keyboardOffset > 0 ? (
+                <SXAvoidKeyboard offset={keyboardOffset}>
+                  {children}
+                </SXAvoidKeyboard>
+              ) : (
+                children
+              )}
             </View>
           </Animated.View>
         </Animated.View>
