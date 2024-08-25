@@ -1,16 +1,19 @@
 import {StyleSheet} from 'react-native';
 
-import {Spacings} from '@theme';
+import {Device} from '@constants';
+import {Colors, Spacings, hexColorWithOpacity} from '@theme';
 
 const styles = StyleSheet.create({
-  modal: {
-    margin: 0,
-    marginTop: Spacings.Titanic,
-    borderTopLeftRadius: Spacings.Spacious,
-    borderTopRightRadius: Spacings.Spacious,
+  overlay: {
+    flex: 1,
     justifyContent: 'flex-end',
+    backgroundColor: hexColorWithOpacity(Colors.light.black, '_70'),
+  },
+  modal: {
+    height: Device.HEIGHT * 0.8,
   },
   contentContainer: {
+    borderRadius: Spacings.Compact,
     padding: Spacings.Spacious,
     paddingBottom: 0,
     flex: 1,

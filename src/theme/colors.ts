@@ -107,6 +107,7 @@ export enum HexOpacity {
 
 const LightPallet = {
   white: '#ffffff',
+  black: '#000000',
   text: '#000000',
   primary: '#0B3D91',
   secondary: '#1F75FE',
@@ -119,6 +120,7 @@ const LightPallet = {
 
 const DarkPallet: Palette = {
   white: '#ffffff',
+  black: '#000000',
   text: '#FFFFFF',
   primary: '#0A2A59',
   secondary: '#1A5AB5',

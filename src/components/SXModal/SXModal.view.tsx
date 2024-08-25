@@ -1,8 +1,7 @@
 import React from 'react';
-import {View} from 'react-native';
-import Modal from 'react-native-modal';
-
-import {Device} from '@constants';
+import {Modal, View} from 'react-native';
+import {GestureDetector} from 'react-native-gesture-handler';
+import Animated, {FadeIn, FadeOut, SlideInDown} from 'react-native-reanimated';
 
 import {SXIcon} from '../SXIcon';
 import styles from './styles';
@@ -14,30 +13,42 @@ const SXModal: SXModalProps = ({
   isVisible,
   hasCloseIcon = true,
   children,
-  style,
   contentContainerStyle,
   onHide,
 }) => {
-  const {backgroundColor} = useViewModel();
+  const {animatedStyles, backgroundColor, gesture, onClose} = useViewModel({
+    onHide,
+  });
 
   return (
     <Modal
-      isVisible={isVisible}
+      animationType="none"
       testID={testID}
-      onSwipeComplete={onHide}
-      useNativeDriver
-      hasBackdrop
-      onBackdropPress={onHide}
-      style={[styles.modal, {backgroundColor}, style]}
-      deviceHeight={Device.HEIGHT}
-      deviceWidth={Device.WIDTH}
-      propagateSwipe>
-      <View style={[styles.contentContainer, contentContainerStyle]}>
-        <View style={styles.closeIconContainer}>
-          {hasCloseIcon && <SXIcon icon="close" onPress={onHide} />}
-        </View>
-        {children}
-      </View>
+      visible={isVisible}
+      transparent
+      statusBarTranslucent>
+      <GestureDetector gesture={gesture}>
+        <Animated.View
+          style={styles.overlay}
+          entering={FadeIn}
+          exiting={FadeOut}>
+          <Animated.View
+            entering={SlideInDown}
+            style={[styles.modal, animatedStyles]}>
+            <View
+              style={[
+                styles.contentContainer,
+                {backgroundColor},
+                contentContainerStyle,
+              ]}>
+              <View style={styles.closeIconContainer}>
+                {hasCloseIcon && <SXIcon icon="close" onPress={onClose} />}
+              </View>
+              {children}
+            </View>
+          </Animated.View>
+        </Animated.View>
+      </GestureDetector>
     </Modal>
   );
 };

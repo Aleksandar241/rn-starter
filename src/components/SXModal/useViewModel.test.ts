@@ -10,7 +10,8 @@ jest.mock('@hooks', () => ({
 
 describe('useViewModel', () => {
   it('should return the background color', () => {
-    const {result} = renderHook(() => useViewModel());
+    const onHide = jest.fn();
+    const {result} = renderHook(() => useViewModel({onHide}));
     expect(result.current.backgroundColor).toBe('mockColor');
   });
 });
