@@ -1,6 +1,8 @@
 export type AllValuesToString<T> = {
   [K in keyof T]: T[K] extends object
-    ? AllValuesToString<T[K]>
+    ? keyof T[K] extends never
+      ? never
+      : AllValuesToString<T[K]>
     : T[K] extends string
       ? string
       : T[K];
