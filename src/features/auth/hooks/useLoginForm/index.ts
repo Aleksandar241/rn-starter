@@ -3,7 +3,6 @@ import {useCallback} from 'react';
 import {Validators} from '@constants';
 import {useForm} from '@hooks';
 import {ResultActions} from '@types';
-import {Scheme} from '@utils';
 
 import {useAuthStore} from '../../stores';
 import {Login, LoginForm} from '../../types';
@@ -16,10 +15,10 @@ export const useLoginForm = ({onSuccess, onError}: ResultActions) => {
       email: '',
       password: '',
     },
-    scheme: Scheme.build({
+    scheme: {
       [LoginForm.EMAIL]: Validators.EMAIL,
       [LoginForm.PASSWORD]: Validators.PASSWORD,
-    }),
+    },
     mode: 'onSubmit',
   });
 
