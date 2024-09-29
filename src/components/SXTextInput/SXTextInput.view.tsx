@@ -4,8 +4,6 @@ import { View } from 'react-native';
 
 import { TextInput } from 'react-native-gesture-handler';
 
-import { TranslationKeys } from '@translations';
-
 import { SXIcon, SXIconProps } from '../SXIcon';
 import { SXText } from '../SXText';
 import styles from './styles';

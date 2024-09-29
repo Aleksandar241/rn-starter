@@ -51,6 +51,7 @@ const useViewModel = ({
     [onBlur, setBorderColor],
   );
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const debouncedOnChange = useCallback(debounce(onChange, 500), [onChange]);
 
   const onChangeHandler = useCallback(

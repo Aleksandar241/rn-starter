@@ -1,4 +1,4 @@
-import type { FC, ForwardedRef, LegacyRef } from 'react';
+import type { FC, LegacyRef } from 'react';
 
 import type {
   StyleProp,

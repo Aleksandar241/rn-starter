@@ -65,7 +65,7 @@ jest.mock('rn-secure-storage', () => {
 
 jest.mock('@utils', () => {
   const yup = require('yup');
-  const {yupResolver} = require('@hookform/resolvers/yup');
+  const { yupResolver } = require('@hookform/resolvers/yup');
 
   return {
     ...jest.requireActual('@utils'),

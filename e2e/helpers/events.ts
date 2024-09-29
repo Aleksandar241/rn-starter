@@ -1,4 +1,4 @@
-import {expect} from 'detox';
+import { expect } from 'detox';
 
 export const tapOnElementById = async (selector: string) => {
   await expect(element(by.id(selector))).toBeVisible();
@@ -63,6 +63,7 @@ export const scrollUntilVisible = async (
         .toBeVisible()
         .withTimeout(2000);
       isElementVisible = true;
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       await element(by.id(scrollViewId)).scroll(200, direction);
       attempts++;

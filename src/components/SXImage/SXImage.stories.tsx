@@ -2,7 +2,6 @@ import React from 'react';
 
 import { StyleSheet } from 'react-native';
 
-import { action } from '@storybook/addon-actions';
 import { Meta, StoryFn } from '@storybook/react';
 
 import { SXScreen } from '../SXScreen';

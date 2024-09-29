@@ -49,7 +49,7 @@ export type Capsule = {
   dragon?: Maybe<Dragon>;
   id?: Maybe<Scalars['ID']['output']>;
   landings?: Maybe<Scalars['Int']['output']>;
-  missions?: Maybe<Array<Maybe<CapsuleMission>>>;
+  missions?: Maybe<Maybe<CapsuleMission>[]>;
   original_launch?: Maybe<Scalars['Date']['output']>;
   reuse_count?: Maybe<Scalars['Int']['output']>;
   status?: Maybe<Scalars['String']['output']>;
@@ -78,7 +78,7 @@ export type Core = {
   asds_landings?: Maybe<Scalars['Int']['output']>;
   block?: Maybe<Scalars['Int']['output']>;
   id?: Maybe<Scalars['ID']['output']>;
-  missions?: Maybe<Array<Maybe<CapsuleMission>>>;
+  missions?: Maybe<Maybe<CapsuleMission>[]>;
   original_launch?: Maybe<Scalars['Date']['output']>;
   reuse_count?: Maybe<Scalars['Int']['output']>;
   rtls_attempts?: Maybe<Scalars['Int']['output']>;
@@ -133,7 +133,7 @@ export type Dragon = {
   return_payload_mass?: Maybe<Mass>;
   return_payload_vol?: Maybe<Volume>;
   sidewall_angle_deg?: Maybe<Scalars['Float']['output']>;
-  thrusters?: Maybe<Array<Maybe<DragonThrust>>>;
+  thrusters?: Maybe<Maybe<DragonThrust>[]>;
   trunk?: Maybe<DragonTrunk>;
   type?: Maybe<Scalars['String']['output']>;
   wikipedia?: Maybe<Scalars['String']['output']>;
@@ -182,7 +182,7 @@ export type Force = {
 
 export type HistoriesResult = {
   __typename?: 'HistoriesResult';
-  data?: Maybe<Array<Maybe<History>>>;
+  data?: Maybe<Maybe<History>[]>;
   result?: Maybe<Result>;
 };
 
@@ -256,10 +256,10 @@ export type Launch = {
   launch_success?: Maybe<Scalars['Boolean']['output']>;
   launch_year?: Maybe<Scalars['String']['output']>;
   links?: Maybe<LaunchLinks>;
-  mission_id?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  mission_id?: Maybe<Maybe<Scalars['String']['output']>[]>;
   mission_name?: Maybe<Scalars['String']['output']>;
   rocket?: Maybe<LaunchRocket>;
-  ships?: Maybe<Array<Maybe<Ship>>>;
+  ships?: Maybe<Maybe<Ship>[]>;
   static_fire_date_unix?: Maybe<Scalars['Date']['output']>;
   static_fire_date_utc?: Maybe<Scalars['Date']['output']>;
   telemetry?: Maybe<LaunchTelemetry>;
@@ -333,7 +333,7 @@ export type LaunchFind = {
 export type LaunchLinks = {
   __typename?: 'LaunchLinks';
   article_link?: Maybe<Scalars['String']['output']>;
-  flickr_images?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  flickr_images?: Maybe<Maybe<Scalars['String']['output']>[]>;
   mission_patch?: Maybe<Scalars['String']['output']>;
   mission_patch_small?: Maybe<Scalars['String']['output']>;
   presskit?: Maybe<Scalars['String']['output']>;
@@ -365,7 +365,7 @@ export type LaunchRocketFairings = {
 
 export type LaunchRocketFirstStage = {
   __typename?: 'LaunchRocketFirstStage';
-  cores?: Maybe<Array<Maybe<LaunchRocketFirstStageCore>>>;
+  cores?: Maybe<Maybe<LaunchRocketFirstStageCore>[]>;
 };
 
 export type LaunchRocketFirstStageCore = {
@@ -385,7 +385,7 @@ export type LaunchRocketFirstStageCore = {
 export type LaunchRocketSecondStage = {
   __typename?: 'LaunchRocketSecondStage';
   block?: Maybe<Scalars['Int']['output']>;
-  payloads?: Maybe<Array<Maybe<Payload>>>;
+  payloads?: Maybe<Maybe<Payload>[]>;
 };
 
 export type LaunchSite = {
@@ -402,7 +402,7 @@ export type LaunchTelemetry = {
 
 export type LaunchesPastResult = {
   __typename?: 'LaunchesPastResult';
-  data?: Maybe<Array<Maybe<Launch>>>;
+  data?: Maybe<Maybe<Launch>[]>;
   result?: Maybe<Result>;
 };
 
@@ -415,7 +415,7 @@ export type Launchpad = {
   name?: Maybe<Scalars['String']['output']>;
   status?: Maybe<Scalars['String']['output']>;
   successful_launches?: Maybe<Scalars['Int']['output']>;
-  vehicles_launched?: Maybe<Array<Maybe<Rocket>>>;
+  vehicles_launched?: Maybe<Maybe<Rocket>[]>;
   wikipedia?: Maybe<Scalars['String']['output']>;
 };
 
@@ -444,9 +444,9 @@ export type Mission = {
   __typename?: 'Mission';
   description?: Maybe<Scalars['String']['output']>;
   id?: Maybe<Scalars['ID']['output']>;
-  manufacturers?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  manufacturers?: Maybe<Maybe<Scalars['String']['output']>[]>;
   name?: Maybe<Scalars['String']['output']>;
-  payloads?: Maybe<Array<Maybe<Payload>>>;
+  payloads?: Maybe<Maybe<Payload>[]>;
   twitter?: Maybe<Scalars['String']['output']>;
   website?: Maybe<Scalars['String']['output']>;
   wikipedia?: Maybe<Scalars['String']['output']>;
@@ -454,7 +454,7 @@ export type Mission = {
 
 export type MissionResult = {
   __typename?: 'MissionResult';
-  data?: Maybe<Array<Maybe<Mission>>>;
+  data?: Maybe<Maybe<Mission>[]>;
   result?: Maybe<Result>;
 };
 
@@ -480,7 +480,7 @@ export type MutationDelete_UsersArgs = {
 };
 
 export type MutationInsert_UsersArgs = {
-  objects: Array<Users_Insert_Input>;
+  objects: Users_Insert_Input[];
   on_conflict?: InputMaybe<Users_On_Conflict>;
 };
 
@@ -491,11 +491,11 @@ export type MutationUpdate_UsersArgs = {
 
 export type Payload = {
   __typename?: 'Payload';
-  customers?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  customers?: Maybe<Maybe<Scalars['String']['output']>[]>;
   id?: Maybe<Scalars['ID']['output']>;
   manufacturer?: Maybe<Scalars['String']['output']>;
   nationality?: Maybe<Scalars['String']['output']>;
-  norad_id?: Maybe<Array<Maybe<Scalars['Int']['output']>>>;
+  norad_id?: Maybe<Maybe<Scalars['Int']['output']>[]>;
   orbit?: Maybe<Scalars['String']['output']>;
   orbit_params?: Maybe<PayloadOrbitParams>;
   payload_mass_kg?: Maybe<Scalars['Float']['output']>;
@@ -550,44 +550,44 @@ export type PayloadsFind = {
 export type Query = {
   __typename?: 'Query';
   capsule?: Maybe<Capsule>;
-  capsules?: Maybe<Array<Maybe<Capsule>>>;
-  capsulesPast?: Maybe<Array<Maybe<Capsule>>>;
-  capsulesUpcoming?: Maybe<Array<Maybe<Capsule>>>;
+  capsules?: Maybe<Maybe<Capsule>[]>;
+  capsulesPast?: Maybe<Maybe<Capsule>[]>;
+  capsulesUpcoming?: Maybe<Maybe<Capsule>[]>;
   company?: Maybe<Info>;
   core?: Maybe<Core>;
-  cores?: Maybe<Array<Maybe<Core>>>;
-  coresPast?: Maybe<Array<Maybe<Core>>>;
-  coresUpcoming?: Maybe<Array<Maybe<Core>>>;
+  cores?: Maybe<Maybe<Core>[]>;
+  coresPast?: Maybe<Maybe<Core>[]>;
+  coresUpcoming?: Maybe<Maybe<Core>[]>;
   dragon?: Maybe<Dragon>;
-  dragons?: Maybe<Array<Maybe<Dragon>>>;
-  histories?: Maybe<Array<Maybe<History>>>;
+  dragons?: Maybe<Maybe<Dragon>[]>;
+  histories?: Maybe<Maybe<History>[]>;
   historiesResult?: Maybe<HistoriesResult>;
   history?: Maybe<History>;
   landpad?: Maybe<Landpad>;
-  landpads?: Maybe<Array<Maybe<Landpad>>>;
+  landpads?: Maybe<Maybe<Landpad>[]>;
   launch?: Maybe<Launch>;
   launchLatest?: Maybe<Launch>;
   launchNext?: Maybe<Launch>;
-  launches?: Maybe<Array<Maybe<Launch>>>;
-  launchesPast?: Maybe<Array<Maybe<Launch>>>;
+  launches?: Maybe<Maybe<Launch>[]>;
+  launchesPast?: Maybe<Maybe<Launch>[]>;
   launchesPastResult?: Maybe<LaunchesPastResult>;
-  launchesUpcoming?: Maybe<Array<Maybe<Launch>>>;
+  launchesUpcoming?: Maybe<Maybe<Launch>[]>;
   launchpad?: Maybe<Launchpad>;
-  launchpads?: Maybe<Array<Maybe<Launchpad>>>;
+  launchpads?: Maybe<Maybe<Launchpad>[]>;
   mission?: Maybe<Mission>;
-  missions?: Maybe<Array<Maybe<Mission>>>;
+  missions?: Maybe<Maybe<Mission>[]>;
   missionsResult?: Maybe<MissionResult>;
   payload?: Maybe<Payload>;
-  payloads?: Maybe<Array<Maybe<Payload>>>;
+  payloads?: Maybe<Maybe<Payload>[]>;
   roadster?: Maybe<Roadster>;
   rocket?: Maybe<Rocket>;
-  rockets?: Maybe<Array<Maybe<Rocket>>>;
+  rockets?: Maybe<Maybe<Rocket>[]>;
   rocketsResult?: Maybe<RocketsResult>;
   ship?: Maybe<Ship>;
-  ships?: Maybe<Array<Maybe<Ship>>>;
+  ships?: Maybe<Maybe<Ship>[]>;
   shipsResult?: Maybe<ShipsResult>;
   /** fetch data from the table: "users" */
-  users: Array<Users>;
+  users: Users[];
   /** fetch aggregated fields from the table: "users" */
   users_aggregate: Users_Aggregate;
   /** fetch data from the table: "users" using primary key columns */
@@ -804,18 +804,18 @@ export type QueryShipsResultArgs = {
 };
 
 export type QueryUsersArgs = {
-  distinct_on?: InputMaybe<Array<Users_Select_Column>>;
+  distinct_on?: InputMaybe<Users_Select_Column[]>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
-  order_by?: InputMaybe<Array<Users_Order_By>>;
+  order_by?: InputMaybe<Users_Order_By[]>;
   where?: InputMaybe<Users_Bool_Exp>;
 };
 
 export type QueryUsers_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Users_Select_Column>>;
+  distinct_on?: InputMaybe<Users_Select_Column[]>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
-  order_by?: InputMaybe<Array<Users_Order_By>>;
+  order_by?: InputMaybe<Users_Order_By[]>;
   where?: InputMaybe<Users_Bool_Exp>;
 };
 
@@ -873,7 +873,7 @@ export type Rocket = {
   landing_legs?: Maybe<RocketLandingLegs>;
   mass?: Maybe<Mass>;
   name?: Maybe<Scalars['String']['output']>;
-  payload_weights?: Maybe<Array<Maybe<RocketPayloadWeight>>>;
+  payload_weights?: Maybe<Maybe<RocketPayloadWeight>[]>;
   second_stage?: Maybe<RocketSecondStage>;
   stages?: Maybe<Scalars['Int']['output']>;
   success_rate_pct?: Maybe<Scalars['Int']['output']>;
@@ -942,7 +942,7 @@ export type RocketSecondStagePayloads = {
 
 export type RocketsResult = {
   __typename?: 'RocketsResult';
-  data?: Maybe<Array<Maybe<Rocket>>>;
+  data?: Maybe<Maybe<Rocket>[]>;
   result?: Maybe<Result>;
 };
 
@@ -957,12 +957,12 @@ export type Ship = {
   id?: Maybe<Scalars['ID']['output']>;
   image?: Maybe<Scalars['String']['output']>;
   imo?: Maybe<Scalars['Int']['output']>;
-  missions?: Maybe<Array<Maybe<ShipMission>>>;
+  missions?: Maybe<Maybe<ShipMission>[]>;
   mmsi?: Maybe<Scalars['Int']['output']>;
   model?: Maybe<Scalars['String']['output']>;
   name?: Maybe<Scalars['String']['output']>;
   position?: Maybe<ShipLocation>;
-  roles?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  roles?: Maybe<Maybe<Scalars['String']['output']>[]>;
   speed_kn?: Maybe<Scalars['Float']['output']>;
   status?: Maybe<Scalars['String']['output']>;
   successful_landings?: Maybe<Scalars['Int']['output']>;
@@ -1012,7 +1012,7 @@ export type ShipsFind = {
 
 export type ShipsResult = {
   __typename?: 'ShipsResult';
-  data?: Maybe<Array<Maybe<Ship>>>;
+  data?: Maybe<Maybe<Ship>[]>;
   result?: Maybe<Result>;
 };
 
@@ -1022,14 +1022,14 @@ export type String_Comparison_Exp = {
   _gt?: InputMaybe<Scalars['String']['input']>;
   _gte?: InputMaybe<Scalars['String']['input']>;
   _ilike?: InputMaybe<Scalars['String']['input']>;
-  _in?: InputMaybe<Array<Scalars['String']['input']>>;
+  _in?: InputMaybe<Scalars['String']['input'][]>;
   _is_null?: InputMaybe<Scalars['Boolean']['input']>;
   _like?: InputMaybe<Scalars['String']['input']>;
   _lt?: InputMaybe<Scalars['String']['input']>;
   _lte?: InputMaybe<Scalars['String']['input']>;
   _neq?: InputMaybe<Scalars['String']['input']>;
   _nilike?: InputMaybe<Scalars['String']['input']>;
-  _nin?: InputMaybe<Array<Scalars['String']['input']>>;
+  _nin?: InputMaybe<Scalars['String']['input'][]>;
   _nlike?: InputMaybe<Scalars['String']['input']>;
   _nsimilar?: InputMaybe<Scalars['String']['input']>;
   _similar?: InputMaybe<Scalars['String']['input']>;
@@ -1038,7 +1038,7 @@ export type String_Comparison_Exp = {
 export type Subscription = {
   __typename?: 'Subscription';
   /** fetch data from the table: "users" */
-  users: Array<Users>;
+  users: Users[];
   /** fetch aggregated fields from the table: "users" */
   users_aggregate: Users_Aggregate;
   /** fetch data from the table: "users" using primary key columns */
@@ -1046,18 +1046,18 @@ export type Subscription = {
 };
 
 export type SubscriptionUsersArgs = {
-  distinct_on?: InputMaybe<Array<Users_Select_Column>>;
+  distinct_on?: InputMaybe<Users_Select_Column[]>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
-  order_by?: InputMaybe<Array<Users_Order_By>>;
+  order_by?: InputMaybe<Users_Order_By[]>;
   where?: InputMaybe<Users_Bool_Exp>;
 };
 
 export type SubscriptionUsers_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Users_Select_Column>>;
+  distinct_on?: InputMaybe<Users_Select_Column[]>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
-  order_by?: InputMaybe<Array<Users_Order_By>>;
+  order_by?: InputMaybe<Users_Order_By[]>;
   where?: InputMaybe<Users_Bool_Exp>;
 };
 
@@ -1100,12 +1100,12 @@ export type Timestamptz_Comparison_Exp = {
   _eq?: InputMaybe<Scalars['timestamptz']['input']>;
   _gt?: InputMaybe<Scalars['timestamptz']['input']>;
   _gte?: InputMaybe<Scalars['timestamptz']['input']>;
-  _in?: InputMaybe<Array<Scalars['timestamptz']['input']>>;
+  _in?: InputMaybe<Scalars['timestamptz']['input'][]>;
   _is_null?: InputMaybe<Scalars['Boolean']['input']>;
   _lt?: InputMaybe<Scalars['timestamptz']['input']>;
   _lte?: InputMaybe<Scalars['timestamptz']['input']>;
   _neq?: InputMaybe<Scalars['timestamptz']['input']>;
-  _nin?: InputMaybe<Array<Scalars['timestamptz']['input']>>;
+  _nin?: InputMaybe<Scalars['timestamptz']['input'][]>;
 };
 
 /** columns and relationships of "users" */
@@ -1122,7 +1122,7 @@ export type Users = {
 export type Users_Aggregate = {
   __typename?: 'users_aggregate';
   aggregate?: Maybe<Users_Aggregate_Fields>;
-  nodes: Array<Users>;
+  nodes: Users[];
 };
 
 /** aggregate fields of "users" */
@@ -1135,7 +1135,7 @@ export type Users_Aggregate_Fields = {
 
 /** aggregate fields of "users" */
 export type Users_Aggregate_FieldsCountArgs = {
-  columns?: InputMaybe<Array<Users_Select_Column>>;
+  columns?: InputMaybe<Users_Select_Column[]>;
   distinct?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -1148,15 +1148,15 @@ export type Users_Aggregate_Order_By = {
 
 /** input type for inserting array relation for remote table "users" */
 export type Users_Arr_Rel_Insert_Input = {
-  data: Array<Users_Insert_Input>;
+  data: Users_Insert_Input[];
   on_conflict?: InputMaybe<Users_On_Conflict>;
 };
 
 /** Boolean expression to filter rows from the table "users". All fields are combined with a logical 'AND'. */
 export type Users_Bool_Exp = {
-  _and?: InputMaybe<Array<InputMaybe<Users_Bool_Exp>>>;
+  _and?: InputMaybe<InputMaybe<Users_Bool_Exp>[]>;
   _not?: InputMaybe<Users_Bool_Exp>;
-  _or?: InputMaybe<Array<InputMaybe<Users_Bool_Exp>>>;
+  _or?: InputMaybe<InputMaybe<Users_Bool_Exp>[]>;
   id?: InputMaybe<Uuid_Comparison_Exp>;
   name?: InputMaybe<String_Comparison_Exp>;
   rocket?: InputMaybe<String_Comparison_Exp>;
@@ -1219,7 +1219,7 @@ export type Users_Mutation_Response = {
   /** number of affected rows by the mutation */
   affected_rows: Scalars['Int']['output'];
   /** data of the affected rows by the mutation */
-  returning: Array<Users>;
+  returning: Users[];
 };
 
 /** input type for inserting object relation for remote table "users" */
@@ -1231,7 +1231,7 @@ export type Users_Obj_Rel_Insert_Input = {
 /** on conflict condition type for table "users" */
 export type Users_On_Conflict = {
   constraint: Users_Constraint;
-  update_columns: Array<Users_Update_Column>;
+  update_columns: Users_Update_Column[];
 };
 
 /** ordering options when selecting data from "users" */
@@ -1285,12 +1285,12 @@ export type Uuid_Comparison_Exp = {
   _eq?: InputMaybe<Scalars['uuid']['input']>;
   _gt?: InputMaybe<Scalars['uuid']['input']>;
   _gte?: InputMaybe<Scalars['uuid']['input']>;
-  _in?: InputMaybe<Array<Scalars['uuid']['input']>>;
+  _in?: InputMaybe<Scalars['uuid']['input'][]>;
   _is_null?: InputMaybe<Scalars['Boolean']['input']>;
   _lt?: InputMaybe<Scalars['uuid']['input']>;
   _lte?: InputMaybe<Scalars['uuid']['input']>;
   _neq?: InputMaybe<Scalars['uuid']['input']>;
-  _nin?: InputMaybe<Array<Scalars['uuid']['input']>>;
+  _nin?: InputMaybe<Scalars['uuid']['input'][]>;
 };
 
 export type LaunchDetailsFragment = {
@@ -1337,18 +1337,20 @@ export type GetLaunchesQueryVariables = Exact<{ [key: string]: never }>;
 
 export type GetLaunchesQuery = {
   __typename?: 'Query';
-  launches?: Array<{
-    __typename?: 'Launch';
-    id?: string | null;
-    mission_name?: string | null;
-    details?: string | null;
-    launch_date_utc?: any | null;
-    rocket?: {
-      __typename?: 'LaunchRocket';
-      rocket_name?: string | null;
-      rocket_type?: string | null;
-    } | null;
-  } | null> | null;
+  launches?:
+    | ({
+        __typename?: 'Launch';
+        id?: string | null;
+        mission_name?: string | null;
+        details?: string | null;
+        launch_date_utc?: any | null;
+        rocket?: {
+          __typename?: 'LaunchRocket';
+          rocket_name?: string | null;
+          rocket_type?: string | null;
+        } | null;
+      } | null)[]
+    | null;
 };
 
 export const LaunchDetailsFragmentDoc = gql`

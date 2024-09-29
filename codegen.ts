@@ -1,11 +1,11 @@
-import type {CodegenConfig} from '@graphql-codegen/cli';
+import type { CodegenConfig } from '@graphql-codegen/cli';
 
 const config: CodegenConfig = {
   overwrite: true,
   schema: 'src/graphql/schema.graphql',
   documents: 'src/graphql/**/*.graphql',
   generates: {
-    'src/graphql/index.tsx': {
+    'src/graphql/index.ts': {
       // preset: 'import-types',
       plugins: [
         'typescript',
@@ -15,7 +15,7 @@ const config: CodegenConfig = {
     },
   },
   require: ['ts-node/register'],
-  hooks: {afterOneFileWrite: ['prettier --write']},
+  hooks: { afterOneFileWrite: ['prettier --write'] },
 };
 
 export default config;

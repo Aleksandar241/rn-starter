@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import { Radius, Spacings } from '@theme';
+import { Radius } from '@theme';
 
 const styles = StyleSheet.create({
   skeleton: {

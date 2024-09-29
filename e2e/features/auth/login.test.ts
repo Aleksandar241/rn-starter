@@ -1,11 +1,11 @@
-import {inputTextByIdAndEnter} from '../../helpers';
-import {AUTOMATION_TEST_IDS} from '../../ids';
+import { inputTextByIdAndEnter } from '../../helpers';
+import { AUTOMATION_TEST_IDS } from '../../ids';
 
 describe('Log in and out', () => {
   beforeAll(async () => {
     await device.launchApp({
       newInstance: true,
-      permissions: {notifications: 'YES'},
+      permissions: { notifications: 'YES' },
     });
   });
 

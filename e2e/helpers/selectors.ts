@@ -1,4 +1,4 @@
-import {expect} from 'detox';
+import { expect } from 'detox';
 
 const WAIT_FOR_TIMEOUT = 3000;
 

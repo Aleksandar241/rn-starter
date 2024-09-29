@@ -1,1 +1,1 @@
-export {default as SnapshotProvider} from './SnapshotProvider';
+export { default as SnapshotProvider } from './SnapshotProvider';

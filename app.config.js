@@ -1,4 +1,4 @@
-export default ({config}) => ({
+export default ({ config }) => ({
   ...config,
   name: 'space-x',
   slug: 'space-x',

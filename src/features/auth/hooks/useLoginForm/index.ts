@@ -29,7 +29,7 @@ export const useLoginForm = ({ onSuccess, onError }: ResultActions) => {
       onSuccess?.();
       setIsAuth(true);
     },
-    [onSuccess, onError],
+    [onSuccess, setIsAuth],
   );
 
   const formAction = form.handleSubmit(onSubmit);

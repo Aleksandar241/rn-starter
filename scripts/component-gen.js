@@ -1,5 +1,5 @@
 const fs = require('fs');
-const {execSync} = require('child_process');
+const { execSync } = require('child_process');
 
 const PREFIX = 'SX';
 const COMPONENTS_PATH = './src/components';
