@@ -1,5 +1,5 @@
-import {act, renderHook} from '@testing-library/react-hooks';
-import {Spacings} from '@theme';
+import { act, renderHook } from '@testing-library/react-hooks';
+import { Spacings } from '@theme';
 
 import useViewModel from './useViewModel';
 
@@ -8,7 +8,9 @@ describe('useViewModel', () => {
     const initialValue = false;
     const onSwitch = jest.fn();
 
-    const {result} = renderHook(() => useViewModel({initialValue, onSwitch}));
+    const { result } = renderHook(() =>
+      useViewModel({ initialValue, onSwitch }),
+    );
 
     act(() => {
       // @ts-ignore

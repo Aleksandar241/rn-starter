@@ -1,8 +1,8 @@
-import {TextProps} from 'react-native';
+import { TextProps } from 'react-native';
 
-import {AllValuesToString, RecursiveKeyOf} from '@types';
+import { AllValuesToString, RecursiveKeyOf } from '@types';
 
-import {en as primaryLang} from './locales/en';
+import { en as primaryLang } from './locales/en';
 
 type PrimaryLang = typeof primaryLang;
 

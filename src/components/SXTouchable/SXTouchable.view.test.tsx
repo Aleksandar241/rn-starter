@@ -1,16 +1,17 @@
 import React from 'react';
-import {Text} from 'react-native';
-import {getByGestureTestId} from 'react-native-gesture-handler/jest-utils';
 
-import {act} from '@testing-library/react-hooks';
-import {render} from '@testing-library/react-native';
+import { Text } from 'react-native';
+
+import { act } from '@testing-library/react-hooks';
+import { render } from '@testing-library/react-native';
+import { getByGestureTestId } from 'react-native-gesture-handler/jest-utils';
 
 import SXTouchable from './SXTouchable.view';
 
 describe('SXTouchable', () => {
   const onPress = jest.fn();
   it('should render children', () => {
-    const {getByText} = render(
+    const { getByText } = render(
       <SXTouchable onPress={onPress}>
         <Text>Test Child</Text>
       </SXTouchable>,
@@ -20,10 +21,10 @@ describe('SXTouchable', () => {
   });
 
   it('should apply custom style', () => {
-    const {getByTestId} = render(
+    const { getByTestId } = render(
       <SXTouchable
         onPress={onPress}
-        style={{backgroundColor: 'red'}}
+        style={{ backgroundColor: 'red' }}
         testID="custom-style"
       />,
     );

@@ -1,1 +1,1 @@
-export {default as SXImage} from './SXImage.view';
+export { default as SXImage } from './SXImage.view';

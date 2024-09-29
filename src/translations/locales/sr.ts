@@ -1,4 +1,4 @@
-import {Lang} from '../types';
+import { Lang } from '../types';
 
 export const sr: Lang = {
   translation: {

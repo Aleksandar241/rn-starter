@@ -1,7 +1,7 @@
-import type {NativeStackScreenProps} from '@react-navigation/native-stack';
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-import type {AuthNavigatorParamsList} from './AuthNavigator/types';
-import type {MainNavigatorParamsList} from './MainNavigator/types';
+import type { AuthNavigatorParamsList } from './AuthNavigator/types';
+import type { MainNavigatorParamsList } from './MainNavigator/types';
 
 type StackNavigatorScreens<T> = {
   [K in keyof T]: NativeStackScreenProps<T, K>;

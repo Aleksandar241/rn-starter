@@ -1,15 +1,16 @@
-import {useTheme} from '@hooks';
-import {Icons} from '@icons';
+import { Icons } from '@icons';
 
-import type {ViewModelProps} from './types';
+import { useTheme } from '@hooks';
 
-const useViewModel = ({icon, color = 'text'}: ViewModelProps) => {
-  const {getColor} = useTheme();
+import type { ViewModelProps } from './types';
+
+const useViewModel = ({ icon, color = 'text' }: ViewModelProps) => {
+  const { getColor } = useTheme();
   const Icon = Icons?.[icon];
 
   const fill = getColor(color);
 
-  return {Icon, fill};
+  return { Icon, fill };
 };
 
 export default useViewModel;

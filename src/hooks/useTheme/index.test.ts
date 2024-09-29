@@ -1,9 +1,11 @@
-import {useThemeStore} from '@stores';
-import {renderHook} from '@testing-library/react-hooks';
-import {Colors} from '@theme';
-import {Logger} from '@utils';
+import { renderHook } from '@testing-library/react-hooks';
+import { Colors } from '@theme';
 
-import {useTheme} from '.';
+import { Logger } from '@utils';
+
+import { useThemeStore } from '@stores';
+
+import { useTheme } from '.';
 
 jest.mock('@stores', () => ({
   useThemeStore: jest.fn(),
@@ -18,31 +20,31 @@ describe('useTheme', () => {
   });
 
   it('should return default theme when no color scheme is provided', () => {
-    mockUseTheme.mockReturnValue({theme: 'light'});
-    const {result} = renderHook(() => useTheme());
+    mockUseTheme.mockReturnValue({ theme: 'light' });
+    const { result } = renderHook(() => useTheme());
 
     expect(result.current.theme).toBe(Colors.light);
   });
 
   it('should return the correct theme based on the color scheme', () => {
-    mockUseTheme.mockReturnValue({theme: 'dark'});
-    const {result} = renderHook(() => useTheme());
+    mockUseTheme.mockReturnValue({ theme: 'dark' });
+    const { result } = renderHook(() => useTheme());
 
     expect(result.current.theme).toBe(Colors.dark);
   });
 
   describe('getColor', () => {
     it('should return the primary color when no color is provided', () => {
-      mockUseTheme.mockReturnValue({theme: 'dark'});
-      const {result} = renderHook(() => useTheme());
+      mockUseTheme.mockReturnValue({ theme: 'dark' });
+      const { result } = renderHook(() => useTheme());
       const primaryColor = result.current.theme.primary;
 
       expect(result.current.getColor()).toBe(primaryColor);
     });
 
     it('should return the specified color from the theme when it exists', () => {
-      mockUseTheme.mockReturnValue({theme: 'dark'});
-      const {result} = renderHook(() => useTheme());
+      mockUseTheme.mockReturnValue({ theme: 'dark' });
+      const { result } = renderHook(() => useTheme());
       const testColor = 'primary';
       const colorValue = result.current.theme[testColor];
 
@@ -50,9 +52,9 @@ describe('useTheme', () => {
     });
 
     it('should return the primary color and log a warning when the color does not exist in the theme', () => {
-      mockUseTheme.mockReturnValue({theme: 'dark'});
+      mockUseTheme.mockReturnValue({ theme: 'dark' });
 
-      const {result} = renderHook(() => useTheme());
+      const { result } = renderHook(() => useTheme());
       const nonExistentColor = 'nonExistentColor';
       const primaryColor = result.current.theme.primary;
 
@@ -68,8 +70,8 @@ describe('useTheme', () => {
     });
 
     it('should log a warning when no color is provided', () => {
-      mockUseTheme.mockReturnValue({theme: 'dark'});
-      const {result} = renderHook(() => useTheme());
+      mockUseTheme.mockReturnValue({ theme: 'dark' });
+      const { result } = renderHook(() => useTheme());
       const primaryColor = result.current.theme.primary;
 
       result.current.getColor();

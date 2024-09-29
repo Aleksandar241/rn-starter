@@ -14,6 +14,6 @@ export * from './SXSwitch';
 export * from './SXLinearGradient';
 export * from './SXSkeleton';
 export * from './SXImage';
-export {default as SXForm} from './SXForm';
+export { default as SXForm } from './SXForm';
 export * from './SXModal';
 export * from './SXRootModal';

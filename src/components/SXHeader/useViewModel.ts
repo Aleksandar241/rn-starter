@@ -1,7 +1,7 @@
-import {useTheme} from '@hooks';
+import { useTheme } from '@hooks';
 
 const useViewModel = () => {
-  const {getColor} = useTheme();
+  const { getColor } = useTheme();
 
   return {
     backgroundColor: getColor('secondary'),

@@ -5,10 +5,11 @@ import {
   useForm as useRHForm,
 } from 'react-hook-form';
 
-import type {Maybe} from '@types';
-import {Scheme} from '@utils';
+import { Scheme } from '@utils';
 
-import type {SchemeObject} from '../../utils/scheme/types';
+import type { Maybe } from '@types';
+
+import type { SchemeObject } from '../../utils/scheme/types';
 
 export const useForm = <
   TFieldValues extends FieldValues = FieldValues,
@@ -21,7 +22,7 @@ export const useForm = <
   const form = useRHForm({
     ...props,
     ...(props?.scheme &&
-      ({resolver: Scheme.resolve(Scheme.build(props.scheme))} as any)),
+      ({ resolver: Scheme.resolve(Scheme.build(props.scheme)) } as any)),
   });
 
   return form as UseFormReturn<FieldValues, any, undefined> & {

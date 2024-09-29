@@ -1,10 +1,11 @@
 import React from 'react';
-import {useForm} from 'react-hook-form';
-import {Text, TextInput, View} from 'react-native';
 
-import {fireEvent, render, screen} from '@testing-library/react-native';
+import { Text, TextInput, View } from 'react-native';
 
-import {createControlledComponent} from './utils';
+import { fireEvent, render, screen } from '@testing-library/react-native';
+import { useForm } from 'react-hook-form';
+
+import { createControlledComponent } from './utils';
 
 type TestFormValues = {
   testField: string;
@@ -31,8 +32,8 @@ const ControlledMockComponent = createControlledComponent(MockComponent, {
 });
 
 const TestForm = () => {
-  const {control, handleSubmit} = useForm<TestFormValues>({
-    defaultValues: {testField: ''},
+  const { control, handleSubmit } = useForm<TestFormValues>({
+    defaultValues: { testField: '' },
   });
 
   const onSubmit = (data: TestFormValues) => {

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {
   Button,
   Pressable,
@@ -8,13 +9,13 @@ import {
   View,
 } from 'react-native';
 
-import {action} from '@storybook/addon-actions';
-import {Meta, StoryFn} from '@storybook/react';
+import { action } from '@storybook/addon-actions';
+import { Meta, StoryFn } from '@storybook/react';
 
-import {SXScreen} from '../SXScreen';
-import {SXText} from '../SXText';
+import { SXScreen } from '../SXScreen';
+import { SXText } from '../SXText';
 import SXTouchable from './SXTouchable.view';
-import type {SXTouchableProps} from './types';
+import type { SXTouchableProps } from './types';
 
 const styles = StyleSheet.create({
   container: {
@@ -46,7 +47,7 @@ export default {
   decorators: [Story => <Story />],
 } as Meta;
 
-const Box = ({text}: {text: string}) => (
+const Box = ({ text }: { text: string }) => (
   <View style={styles.box}>
     <Text children={text} />
   </View>
@@ -128,4 +129,4 @@ Default.args = {
 };
 
 export const Comparison = CompareButtonsTemplate.bind({});
-Comparison.args = {...Default.args};
+Comparison.args = { ...Default.args };

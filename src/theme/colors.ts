@@ -1,4 +1,4 @@
-import {AllValuesToString} from '@types';
+import { AllValuesToString } from '@types';
 
 type Palette = AllValuesToString<typeof LightPallet>;
 
@@ -133,7 +133,7 @@ const DarkPallet: Palette = {
 
 export type Color =
   | keyof typeof LightPallet
-  | {color: keyof typeof LightPallet; opacity: keyof typeof HexOpacity};
+  | { color: keyof typeof LightPallet; opacity: keyof typeof HexOpacity };
 
 export type ColorScheme = 'light' | 'dark';
 

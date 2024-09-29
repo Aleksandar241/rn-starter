@@ -1,9 +1,9 @@
-import {useTheme} from '@hooks';
+import { useTheme } from '@hooks';
 
-import {ViewModelProps} from './types';
+import { ViewModelProps } from './types';
 
-const useViewModel = ({id, onPress}: ViewModelProps) => {
-  const {getColor} = useTheme();
+const useViewModel = ({ id, onPress }: ViewModelProps) => {
+  const { getColor } = useTheme();
 
   const onPressHandler = () => onPress(id);
 

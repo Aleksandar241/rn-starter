@@ -1,13 +1,17 @@
-import {Linking} from 'react-native';
+import { Linking } from 'react-native';
 
-import {useGetLaunchDetailsQuery} from '@graphql';
-import {useRoute} from '@react-navigation/native';
-import {Logger} from '@utils';
+import { useRoute } from '@react-navigation/native';
+
+import { Logger } from '@utils';
+
+import { useGetLaunchDetailsQuery } from '@graphql';
 
 const useViewModel = () => {
   const route = useRoute<MainNavigatorParams['LaunchDetailsScreen']['route']>();
   const id = route.params?.id;
-  const {data, loading, error} = useGetLaunchDetailsQuery({variables: {id}});
+  const { data, loading, error } = useGetLaunchDetailsQuery({
+    variables: { id },
+  });
   const launchDetails = data?.launch;
 
   const onPressSite = () => {

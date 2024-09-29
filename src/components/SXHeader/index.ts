@@ -1,1 +1,1 @@
-export {default as SXHeader} from './SXHeader.view';
+export { default as SXHeader } from './SXHeader.view';

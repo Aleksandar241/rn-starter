@@ -1,11 +1,12 @@
 import React from 'react';
 
-import {Launch, LaunchDetails} from '@features/launch';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import {SCREEN_MODAL_OPTIONS, SCREEN_OPTIONS} from '../options';
-import {AppRoute} from '../routes';
-import type {MainNavigatorParamsList} from './types';
+import { Launch, LaunchDetails } from '@features/launch';
+
+import { SCREEN_MODAL_OPTIONS, SCREEN_OPTIONS } from '../options';
+import { AppRoute } from '../routes';
+import type { MainNavigatorParamsList } from './types';
 
 const MainStack = createNativeStackNavigator<MainNavigatorParamsList>();
 

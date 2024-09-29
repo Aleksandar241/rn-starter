@@ -1,12 +1,13 @@
-import React, {FC} from 'react';
+import React, { FC } from 'react';
 
-import {SXButton, SXForm, SXScreen} from '@components';
-import {AUTOMATION_TEST_IDS} from '@e2e';
+import { AUTOMATION_TEST_IDS } from '@e2e';
+
+import { SXButton, SXForm, SXScreen } from '@components';
 
 import useViewModel from './useViewModel';
 
 const Login: FC<AuthNavigatorParams['LoginScreen']> = () => {
-  const {control, handleSubmit} = useViewModel();
+  const { control, handleSubmit } = useViewModel();
 
   return (
     <SXScreen>

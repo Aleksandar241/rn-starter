@@ -1,7 +1,7 @@
-import {LinearGradient} from 'expo-linear-gradient';
+import { LinearGradient } from 'expo-linear-gradient';
 
 import styles from './styles';
-import type {SXLinearGradientProps} from './types';
+import type { SXLinearGradientProps } from './types';
 import useViewModel from './useViewModel';
 
 const SXLinearGradient: SXLinearGradientProps = ({
@@ -10,7 +10,7 @@ const SXLinearGradient: SXLinearGradientProps = ({
   style,
   ...rest
 }) => {
-  const {mappedColors} = useViewModel({colors});
+  const { mappedColors } = useViewModel({ colors });
   return (
     <LinearGradient
       testID={testID}

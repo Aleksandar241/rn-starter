@@ -1,12 +1,13 @@
-import React, {useState} from 'react';
-import {StyleSheet} from 'react-native';
+import React, { useState } from 'react';
 
-import {action} from '@storybook/addon-actions';
-import {Meta, StoryFn} from '@storybook/react';
+import { StyleSheet } from 'react-native';
 
-import {SXScreen} from '../SXScreen';
+import { action } from '@storybook/addon-actions';
+import { Meta, StoryFn } from '@storybook/react';
+
+import { SXScreen } from '../SXScreen';
 import SXSwitch from './SXSwitch.view';
-import type {SXSwitchProps} from './types';
+import type { SXSwitchProps } from './types';
 
 export default {
   title: 'SXSwitch',

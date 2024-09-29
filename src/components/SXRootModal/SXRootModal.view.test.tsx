@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {render} from '@testing-library/react-native';
+import { render } from '@testing-library/react-native';
 
 import SXRootModal from './SXRootModal.view';
 
@@ -13,7 +13,7 @@ jest.mock('@stores', () => ({
 }));
 describe('SXRootModal', () => {
   it('should render correctly', () => {
-    const {getByTestId} = render(<SXRootModal testID={'SX-ROOT_MODAL'} />);
+    const { getByTestId } = render(<SXRootModal testID={'SX-ROOT_MODAL'} />);
     expect(getByTestId('SX-ROOT_MODAL')).toBeDefined();
   });
 });

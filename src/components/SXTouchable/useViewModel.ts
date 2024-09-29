@@ -1,4 +1,5 @@
-import {Gesture} from 'react-native-gesture-handler';
+import throttle from 'lodash/throttle';
+import { Gesture } from 'react-native-gesture-handler';
 import {
   runOnJS,
   useAnimatedStyle,
@@ -7,9 +8,7 @@ import {
   withTiming,
 } from 'react-native-reanimated';
 
-import throttle from 'lodash/throttle';
-
-import type {ViewModelProps} from './types';
+import type { ViewModelProps } from './types';
 
 const useViewModel = ({
   activeOpacity = 0.5,

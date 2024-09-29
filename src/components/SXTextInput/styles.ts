@@ -1,6 +1,6 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
-import {FONTS, Radius, Spacings} from '@theme';
+import { FONTS, Radius, Spacings } from '@theme';
 
 const styles = StyleSheet.create({
   container: {

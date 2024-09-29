@@ -1,7 +1,8 @@
-import type {FC} from 'react';
-import type {ViewStyle} from 'react-native';
+import type { FC } from 'react';
 
-import {TranslatedTextProps} from '../../translations/types';
+import type { ViewStyle } from 'react-native';
+
+import { TranslatedTextProps } from '../../translations/types';
 
 export type ButtonType = 'primary' | 'secondary';
 

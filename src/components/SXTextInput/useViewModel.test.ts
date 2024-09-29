@@ -4,7 +4,7 @@ import {
   TextInputFocusEventData,
 } from 'react-native';
 
-import {act, renderHook} from '@testing-library/react-hooks';
+import { act, renderHook } from '@testing-library/react-hooks';
 
 import useViewModel from './useViewModel';
 
@@ -20,7 +20,7 @@ describe('useViewModel', () => {
   const onBlurMock = jest.fn();
   const nativeFocusEvent = {} as NativeSyntheticEvent<TextInputFocusEventData>;
   const changeEvent = {
-    nativeEvent: {text: 'Hello'},
+    nativeEvent: { text: 'Hello' },
   } as NativeSyntheticEvent<TextInputChangeEventData>;
 
   beforeEach(() => {
@@ -33,7 +33,7 @@ describe('useViewModel', () => {
   });
 
   it('should update borderColor on focus', () => {
-    const {result} = renderHook(() =>
+    const { result } = renderHook(() =>
       useViewModel({
         onChange: onChangeMock,
         onFocus: onFocusMock,
@@ -49,7 +49,7 @@ describe('useViewModel', () => {
   });
 
   it('should update borderColor on blur', () => {
-    const {result} = renderHook(() =>
+    const { result } = renderHook(() =>
       useViewModel({
         onChange: onChangeMock,
         onFocus: onFocusMock,
@@ -66,7 +66,9 @@ describe('useViewModel', () => {
 
   it('should call onChange with debounced', () => {
     const onChangeMock = jest.fn();
-    const {result} = renderHook(() => useViewModel({onChange: onChangeMock}));
+    const { result } = renderHook(() =>
+      useViewModel({ onChange: onChangeMock }),
+    );
 
     act(() => {
       result.current.onChangeHandler(changeEvent);
@@ -78,8 +80,8 @@ describe('useViewModel', () => {
   it('should call onChange with debounce', () => {
     const onChangeMock = jest.fn();
 
-    const {result} = renderHook(() =>
-      useViewModel({onChange: onChangeMock, useDebounce: true}),
+    const { result } = renderHook(() =>
+      useViewModel({ onChange: onChangeMock, useDebounce: true }),
     );
 
     act(() => {
@@ -96,8 +98,8 @@ describe('useViewModel', () => {
   });
 
   it('should toggle password visibility', () => {
-    const {result} = renderHook(() =>
-      useViewModel({onChange: onChangeMock, isPassword: true}),
+    const { result } = renderHook(() =>
+      useViewModel({ onChange: onChangeMock, isPassword: true }),
     );
 
     expect(result.current.hidePassword).toBe(true);
@@ -112,7 +114,7 @@ describe('useViewModel', () => {
   });
 
   it('should handle error state', () => {
-    const {result} = renderHook(() =>
+    const { result } = renderHook(() =>
       useViewModel({
         onChange: onChangeMock,
         error: 'error' as any,
@@ -123,22 +125,22 @@ describe('useViewModel', () => {
   });
 
   it('should handle initial hidePassword state', () => {
-    const {result} = renderHook(() =>
-      useViewModel({onChange: onChangeMock, isPassword: true}),
+    const { result } = renderHook(() =>
+      useViewModel({ onChange: onChangeMock, isPassword: true }),
     );
 
     expect(result.current.hidePassword).toBe(true);
 
-    const {result: resultNoPassword} = renderHook(() =>
-      useViewModel({onChange: onChangeMock, isPassword: false}),
+    const { result: resultNoPassword } = renderHook(() =>
+      useViewModel({ onChange: onChangeMock, isPassword: false }),
     );
 
     expect(resultNoPassword.current.hidePassword).toBe(false);
   });
 
   it('should configure rightIcon based on isPassword and hidePassword', () => {
-    const {result} = renderHook(() =>
-      useViewModel({onChange: onChangeMock, isPassword: true}),
+    const { result } = renderHook(() =>
+      useViewModel({ onChange: onChangeMock, isPassword: true }),
     );
 
     expect(result.current.rightIcon?.icon).toBe('close');

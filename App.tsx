@@ -1,13 +1,17 @@
-import {FC} from 'react';
-import {GestureHandlerRootView} from 'react-native-gesture-handler';
-import {SafeAreaProvider} from 'react-native-safe-area-context';
+import { FC } from 'react';
 
-import {ApolloProvider} from '@apollo/client';
-import {SXRootModal} from '@components';
-import {RootNavigator} from '@navigation';
-import {NavigationContainer} from '@react-navigation/native';
-import {ApolloService} from '@services';
+import { ApolloProvider } from '@apollo/client';
+import { NavigationContainer } from '@react-navigation/native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+
+import { RootNavigator } from '@navigation';
+
 import '@translations';
+
+import { ApolloService } from '@services';
+
+import { SXRootModal } from '@components';
 
 const App: FC = () => {
   return (

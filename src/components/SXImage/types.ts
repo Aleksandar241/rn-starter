@@ -1,8 +1,10 @@
-import type {FC} from 'react';
-import {StyleProp} from 'react-native';
+import type { FC } from 'react';
 
-import {Maybe} from '@types';
-import {ImageContentFit, ImageStyle} from 'expo-image';
+import { StyleProp } from 'react-native';
+
+import { ImageContentFit, ImageStyle } from 'expo-image';
+
+import { Maybe } from '@types';
 
 type Props = {
   testID?: string;

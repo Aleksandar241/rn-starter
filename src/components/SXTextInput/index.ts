@@ -1,1 +1,1 @@
-export {default as SXTextInput} from './SXTextInput.view';
+export { default as SXTextInput } from './SXTextInput.view';

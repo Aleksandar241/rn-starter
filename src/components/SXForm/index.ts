@@ -1,8 +1,8 @@
-import {SXCheckbox} from '../SXCheckbox';
-import {SXRadio} from '../SXRadio';
-import {SXSwitch} from '../SXSwitch';
-import {SXTextInput} from '../SXTextInput';
-import {createControlledComponent} from './utils';
+import { SXCheckbox } from '../SXCheckbox';
+import { SXRadio } from '../SXRadio';
+import { SXSwitch } from '../SXSwitch';
+import { SXTextInput } from '../SXTextInput';
+import { createControlledComponent } from './utils';
 
 export * from './utils';
 

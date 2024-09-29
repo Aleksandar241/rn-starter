@@ -1,4 +1,4 @@
-import {FlashListProps} from '@shopify/flash-list';
+import { FlashListProps } from '@shopify/flash-list';
 
 type Props<T = {}> = FlashListProps<T> & {
   loading?: boolean;

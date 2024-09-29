@@ -1,13 +1,14 @@
-import React, {FC, memo} from 'react';
+import React, { FC, memo } from 'react';
 
-import {SXList} from '@components';
-import type {Launch} from '@graphql';
+import type { Launch } from '@graphql';
+
+import { SXList } from '@components';
 
 import styles from './styles';
 import useViewModel from './useViewModel';
 
 const LaunchesList: FC = () => {
-  const {launches, loading, error, refetch, renderItem} = useViewModel();
+  const { launches, loading, error, refetch, renderItem } = useViewModel();
 
   return (
     <SXList<Launch>

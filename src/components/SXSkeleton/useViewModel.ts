@@ -6,6 +6,7 @@ import {
   useEffect,
   useRef,
 } from 'react';
+
 import Animated, {
   Easing,
   cancelAnimation,
@@ -15,12 +16,13 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 
-import {Device} from '@constants';
-import {Logger} from '@utils';
+import { Device } from '@constants';
 
-import {SXLinearGradient} from '../SXLinearGradient';
+import { Logger } from '@utils';
+
+import { SXLinearGradient } from '../SXLinearGradient';
 import styles from './styles';
-import {ViewModelProps} from './types';
+import { ViewModelProps } from './types';
 
 const useViewModel = ({
   testID = 'SX-SKELETON',
@@ -35,7 +37,7 @@ const useViewModel = ({
   const animatedStyle = useAnimatedStyle(() => {
     return {
       opacity: 0.5 + 0.05 * skeleton.value,
-      transform: [{translateX: skeleton.value}],
+      transform: [{ translateX: skeleton.value }],
     };
   });
 
@@ -57,21 +59,21 @@ const useViewModel = ({
 
       return createElement(AnimatedElement, {
         testID,
-        style: [style, styles.skeleton, {width: elementWidth, borderRadius}],
+        style: [style, styles.skeleton, { width: elementWidth, borderRadius }],
         children: createElement(AnimatedElement, {
-          style: [animatedStyle, {height, width: elementWidth}],
+          style: [animatedStyle, { height, width: elementWidth }],
           children: createElement(SXLinearGradient, {
             style: {
               width: elementWidth,
               height,
             },
             colors: [
-              {color: 'white', opacity: '_80'},
-              {color: 'white', opacity: '_50'},
-              {color: 'white', opacity: '_100'},
+              { color: 'white', opacity: '_80' },
+              { color: 'white', opacity: '_50' },
+              { color: 'white', opacity: '_100' },
             ],
-            start: {x: 0, y: 0},
-            end: {x: 1, y: 0},
+            start: { x: 0, y: 0 },
+            end: { x: 1, y: 0 },
           }),
         }),
       });

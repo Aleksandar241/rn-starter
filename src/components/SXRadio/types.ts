@@ -1,6 +1,6 @@
-import type {FC} from 'react';
+import type { FC } from 'react';
 
-import type {Maybe} from '@types';
+import type { Maybe } from '@types';
 
 export type ViewModelProps = {
   selected: Maybe<boolean>;

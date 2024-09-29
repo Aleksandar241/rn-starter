@@ -1,12 +1,13 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
 
-import {Meta, StoryFn} from '@storybook/react';
+import { StyleSheet } from 'react-native';
 
-import {SXScreen} from '../SXScreen';
-import {SXTextInput} from '../SXTextInput';
+import { Meta, StoryFn } from '@storybook/react';
+
+import { SXScreen } from '../SXScreen';
+import { SXTextInput } from '../SXTextInput';
 import SXAvoidKeyboard from './SXAvoidKeyboard.view';
-import type {SXAvoidKeyboardProps} from './types';
+import type { SXAvoidKeyboardProps } from './types';
 
 export default {
   title: 'SXAvoidKeyboard',
@@ -30,7 +31,7 @@ const styles = StyleSheet.create({
 const Template: StoryFn<SXAvoidKeyboardProps> = args => (
   <SXScreen style={styles.container}>
     <SXAvoidKeyboard {...args}>
-      <SXTextInput onChange={() => {}} leftIcon={{icon: 'rocket'}} />
+      <SXTextInput onChange={() => {}} leftIcon={{ icon: 'rocket' }} />
     </SXAvoidKeyboard>
   </SXScreen>
 );

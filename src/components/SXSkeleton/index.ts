@@ -1,1 +1,1 @@
-export {default as SXSkeleton} from './SXSkeleton.view';
+export { default as SXSkeleton } from './SXSkeleton.view';

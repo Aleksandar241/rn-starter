@@ -1,1 +1,1 @@
-export {default as LaunchesList} from './LaunchesList.view';
+export { default as LaunchesList } from './LaunchesList.view';

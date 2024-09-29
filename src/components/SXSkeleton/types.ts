@@ -1,5 +1,6 @@
-import type {FC} from 'react';
-import type {DimensionValue} from 'react-native';
+import type { FC } from 'react';
+
+import type { DimensionValue } from 'react-native';
 
 export type ViewModelProps = {
   width?: number;

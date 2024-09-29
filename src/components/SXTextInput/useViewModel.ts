@@ -1,16 +1,19 @@
-import {useCallback, useState} from 'react';
+import { useCallback, useState } from 'react';
+
 import type {
   NativeSyntheticEvent,
   TextInputChangeEventData,
   TextInputFocusEventData,
 } from 'react-native';
 
-import {useTheme} from '@hooks';
-import type {Color} from '@theme';
-import {TranslationKeys, useTranslation} from '@translations';
+import type { Color } from '@theme';
 import debounce from 'lodash/debounce';
 
-import type {ViewModelProps} from './types';
+import { useTheme } from '@hooks';
+
+import { TranslationKeys, useTranslation } from '@translations';
+
+import type { ViewModelProps } from './types';
 
 const useViewModel = ({
   onFocus,
@@ -22,8 +25,8 @@ const useViewModel = ({
   error,
   placeholder,
 }: ViewModelProps) => {
-  const {translate} = useTranslation();
-  const {getColor} = useTheme();
+  const { translate } = useTranslation();
+  const { getColor } = useTheme();
 
   const [borderColor, setBorderColor] = useState<Color>('secondary');
   const [hidePassword, setHidePassword] = useState(isPassword);

@@ -1,1 +1,1 @@
-export {default as SXScreen} from './SXScreen.view';
+export { default as SXScreen } from './SXScreen.view';

@@ -1,4 +1,4 @@
-import {renderHook} from '@testing-library/react-hooks';
+import { renderHook } from '@testing-library/react-hooks';
 
 import useViewModel from './useViewModel';
 
@@ -10,8 +10,8 @@ jest.mock('@hooks', () => ({
 
 describe('useViewModel', () => {
   it('should return the correct button style when type is primary and not disabled', () => {
-    const {result} = renderHook(() =>
-      useViewModel({type: 'primary', disabled: false}),
+    const { result } = renderHook(() =>
+      useViewModel({ type: 'primary', disabled: false }),
     );
 
     expect(result.current.buttonStyle).toEqual({
@@ -20,8 +20,8 @@ describe('useViewModel', () => {
   });
 
   it('should return the correct button style when type is secondary and not disabled', () => {
-    const {result} = renderHook(() =>
-      useViewModel({type: 'secondary', disabled: false}),
+    const { result } = renderHook(() =>
+      useViewModel({ type: 'secondary', disabled: false }),
     );
 
     expect(result.current.buttonStyle).toEqual({
@@ -30,8 +30,8 @@ describe('useViewModel', () => {
   });
 
   it('should return the correct button style when disabled is true', () => {
-    const {result} = renderHook(() =>
-      useViewModel({type: 'primary', disabled: true}),
+    const { result } = renderHook(() =>
+      useViewModel({ type: 'primary', disabled: true }),
     );
 
     expect(result.current.buttonStyle).toEqual({

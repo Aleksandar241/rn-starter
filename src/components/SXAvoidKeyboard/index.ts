@@ -1,1 +1,1 @@
-export {default as SXAvoidKeyboard} from './SXAvoidKeyboard.view';
+export { default as SXAvoidKeyboard } from './SXAvoidKeyboard.view';

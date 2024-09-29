@@ -1,12 +1,14 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
 
-import {Device} from '@constants';
-import {Meta, StoryFn} from '@storybook/react';
+import { StyleSheet, View } from 'react-native';
 
-import {SXScreen} from '../SXScreen';
+import { Meta, StoryFn } from '@storybook/react';
+
+import { Device } from '@constants';
+
+import { SXScreen } from '../SXScreen';
 import SXCarousel from './SXCarousel.view';
-import type {SXCarouselProps} from './types';
+import type { SXCarouselProps } from './types';
 
 export default {
   title: 'SXCarousel',
@@ -34,9 +36,9 @@ const styles = StyleSheet.create({
   },
 });
 
-const Card = ({backgroundColor}: {backgroundColor: string}) => (
+const Card = ({ backgroundColor }: { backgroundColor: string }) => (
   <View style={styles.viewWrapper}>
-    <View style={[styles.view, {backgroundColor}]} />
+    <View style={[styles.view, { backgroundColor }]} />
   </View>
 );
 

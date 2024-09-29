@@ -1,14 +1,16 @@
-import React, {FC} from 'react';
-import {ScrollView} from 'react-native';
+import React, { FC } from 'react';
 
-import {SXLoading, SXScreen, SXText} from '@components';
-import {Logger} from '@utils';
+import { ScrollView } from 'react-native';
+
+import { Logger } from '@utils';
+
+import { SXLoading, SXScreen, SXText } from '@components';
 
 import styles from './styles';
 import useViewModel from './useViewModel';
 
 const LaunchDetails: FC<MainNavigatorParams['LaunchDetailsScreen']> = () => {
-  const {loading, launchDetails, error, onPressSite} = useViewModel();
+  const { loading, launchDetails, error, onPressSite } = useViewModel();
 
   if (loading) {
     return (

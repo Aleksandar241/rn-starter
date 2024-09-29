@@ -1,5 +1,6 @@
-import {useCallback} from 'react';
-import {Gesture} from 'react-native-gesture-handler';
+import { useCallback } from 'react';
+
+import { Gesture } from 'react-native-gesture-handler';
 import {
   runOnJS,
   useAnimatedStyle,
@@ -8,17 +9,17 @@ import {
   withTiming,
 } from 'react-native-reanimated';
 
-import {useTheme} from '@hooks';
+import { useTheme } from '@hooks';
 
 import styles from './styles';
-import {ViewModelProps} from './types';
+import { ViewModelProps } from './types';
 
 const HIDE_MODAL_POSITION = styles.modal.height;
 
-const useViewModel = ({onHide}: ViewModelProps) => {
-  const {getColor} = useTheme();
+const useViewModel = ({ onHide }: ViewModelProps) => {
+  const { getColor } = useTheme();
   const translateY = useSharedValue(0);
-  const context = useSharedValue({y: 0});
+  const context = useSharedValue({ y: 0 });
 
   const resetAnimation = useCallback(() => {
     setTimeout(() => {
@@ -34,7 +35,7 @@ const useViewModel = ({onHide}: ViewModelProps) => {
       if (isCompleted) {
         translateY.value = withTiming(
           destination,
-          {duration: 100},
+          { duration: 100 },
           isFinished => {
             if (isFinished) {
               runOnJS(onHide)();
@@ -44,14 +45,14 @@ const useViewModel = ({onHide}: ViewModelProps) => {
         );
         return;
       }
-      translateY.value = withSpring(destination, {damping: 50});
+      translateY.value = withSpring(destination, { damping: 50 });
     },
     [translateY, onHide, resetAnimation],
   );
 
   const gesture = Gesture.Pan()
     .onStart(() => {
-      context.value = {y: translateY.value};
+      context.value = { y: translateY.value };
     })
     .onUpdate(event => {
       const curr = event.translationY + context.value.y;
@@ -74,7 +75,7 @@ const useViewModel = ({onHide}: ViewModelProps) => {
 
   const animatedStyles = useAnimatedStyle(() => {
     return {
-      transform: [{translateY: translateY.value}],
+      transform: [{ translateY: translateY.value }],
     };
   });
 

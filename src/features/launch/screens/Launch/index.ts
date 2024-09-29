@@ -1,1 +1,1 @@
-export {default as Launch} from './Launch.view';
+export { default as Launch } from './Launch.view';

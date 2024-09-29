@@ -1,4 +1,4 @@
-import {renderHook} from '@testing-library/react-hooks';
+import { renderHook } from '@testing-library/react-hooks';
 
 import useViewModel from './useViewModel';
 
@@ -11,7 +11,7 @@ jest.mock('@hooks', () => ({
 describe('useViewModel', () => {
   it('should return the background color', () => {
     const onHide = jest.fn();
-    const {result} = renderHook(() => useViewModel({onHide}));
+    const { result } = renderHook(() => useViewModel({ onHide }));
     expect(result.current.backgroundColor).toBe('mockColor');
   });
 });

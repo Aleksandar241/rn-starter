@@ -1,6 +1,6 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
-import {Spacings} from '@theme';
+import { Spacings } from '@theme';
 
 const styles = StyleSheet.create({
   indicator: {

@@ -1,5 +1,6 @@
-import type {ComponentType} from 'react';
-import type {Control, FieldValues} from 'react-hook-form';
+import type { ComponentType } from 'react';
+
+import type { Control, FieldValues } from 'react-hook-form';
 
 export type BaseProps<T> = {
   name: string;

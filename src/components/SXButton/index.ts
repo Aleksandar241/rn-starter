@@ -1,1 +1,1 @@
-export {default as SXButton} from './SXButton.view';
+export { default as SXButton } from './SXButton.view';

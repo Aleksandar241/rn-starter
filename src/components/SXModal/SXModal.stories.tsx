@@ -1,11 +1,12 @@
-import React, {useState} from 'react';
-import {Pressable, StyleSheet, Text} from 'react-native';
+import React, { useState } from 'react';
 
-import {Meta, StoryFn} from '@storybook/react';
+import { Pressable, StyleSheet, Text } from 'react-native';
 
-import {SXScreen} from '../SXScreen';
+import { Meta, StoryFn } from '@storybook/react';
+
+import { SXScreen } from '../SXScreen';
 import SXModal from './SXModal.view';
-import type {SXModalProps} from './types';
+import type { SXModalProps } from './types';
 
 export default {
   title: 'SXModal',

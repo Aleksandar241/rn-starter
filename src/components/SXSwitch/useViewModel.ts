@@ -1,4 +1,4 @@
-import {Gesture} from 'react-native-gesture-handler';
+import { Gesture } from 'react-native-gesture-handler';
 import {
   runOnJS,
   useAnimatedStyle,
@@ -6,19 +6,19 @@ import {
   withTiming,
 } from 'react-native-reanimated';
 
-import {useTheme} from '@hooks';
+import { useTheme } from '@hooks';
 
-import {Spacings} from '../../theme/spacings';
-import type {ViewModelProps} from './types';
+import { Spacings } from '../../theme/spacings';
+import type { ViewModelProps } from './types';
 
-const useViewModel = ({initialValue = false, onSwitch}: ViewModelProps) => {
+const useViewModel = ({ initialValue = false, onSwitch }: ViewModelProps) => {
   const isActive = useSharedValue(false);
   const transformX = useSharedValue(
     initialValue ? Spacings.Compact : -Spacings.Compact,
   );
   const rippleScale = useSharedValue(0);
 
-  const {getColor} = useTheme();
+  const { getColor } = useTheme();
 
   const onSwitchHandler = (value: boolean) => {
     onSwitch(value);
@@ -41,7 +41,7 @@ const useViewModel = ({initialValue = false, onSwitch}: ViewModelProps) => {
       },
     );
 
-    rippleScale.value = withTiming(1, {duration: 400}, isFinished => {
+    rippleScale.value = withTiming(1, { duration: 400 }, isFinished => {
       if (isFinished) {
         rippleScale.value = 0;
       }
@@ -68,19 +68,19 @@ const useViewModel = ({initialValue = false, onSwitch}: ViewModelProps) => {
   };
 
   const rippleStyle = {
-    backgroundColor: getColor({color: 'secondary', opacity: '_20'}),
+    backgroundColor: getColor({ color: 'secondary', opacity: '_20' }),
   };
 
   const animatedThumbStyle = useAnimatedStyle(
     () => ({
-      transform: [{translateX: transformX.value}],
+      transform: [{ translateX: transformX.value }],
     }),
     [transformX],
   );
 
   const rippleAnimatedStyle = useAnimatedStyle(
     () => ({
-      transform: [{scale: rippleScale.value}],
+      transform: [{ scale: rippleScale.value }],
     }),
     [rippleScale],
   );

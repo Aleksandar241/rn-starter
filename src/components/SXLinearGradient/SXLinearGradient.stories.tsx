@@ -1,11 +1,12 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
 
-import {Meta, StoryFn} from '@storybook/react';
+import { StyleSheet, View } from 'react-native';
 
-import {SXScreen} from '../SXScreen';
+import { Meta, StoryFn } from '@storybook/react';
+
+import { SXScreen } from '../SXScreen';
 import SXLinearGradient from './SXLinearGradient.view';
-import type {SXLinearGradientProps} from './types';
+import type { SXLinearGradientProps } from './types';
 
 export default {
   title: 'SXLinearGradient',

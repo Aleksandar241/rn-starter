@@ -1,8 +1,9 @@
-import type {FC} from 'react';
-import type {StyleProp, ViewStyle} from 'react-native';
+import type { FC } from 'react';
 
-import type {IconName} from '@icons';
-import type {Color} from '@theme';
+import type { StyleProp, ViewStyle } from 'react-native';
+
+import type { IconName } from '@icons';
+import type { Color } from '@theme';
 
 export type ViewModelProps = {
   icon: IconName;

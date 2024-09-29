@@ -1,6 +1,6 @@
-import {TextStyle} from 'react-native';
+import { TextStyle } from 'react-native';
 
-import {EnumHelper} from '@utils';
+import { EnumHelper } from '@utils';
 
 export enum FONT_FAMILIES {
   POPPINS = 'Poppins',

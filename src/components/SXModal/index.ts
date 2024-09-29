@@ -1,1 +1,1 @@
-export {default as SXModal} from './SXModal.view';
+export { default as SXModal } from './SXModal.view';

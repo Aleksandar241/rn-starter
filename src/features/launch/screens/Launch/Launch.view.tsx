@@ -1,7 +1,8 @@
-import React, {FC} from 'react';
+import React, { FC } from 'react';
 
-import {SXScreen} from '@components';
-import {LaunchesList} from '@features/launch/components';
+import { LaunchesList } from '@features/launch/components';
+
+import { SXScreen } from '@components';
 
 const Launch: FC<MainNavigatorParams['LaunchScreen']> = () => {
   return (

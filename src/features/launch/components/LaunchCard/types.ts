@@ -1,6 +1,6 @@
-import type {FC} from 'react';
+import type { FC } from 'react';
 
-import type {Launch} from '@graphql';
+import type { Launch } from '@graphql';
 
 export type ViewModelProps = {
   id: Launch['id'];

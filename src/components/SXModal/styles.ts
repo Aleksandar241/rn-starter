@@ -1,7 +1,8 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
-import {Device} from '@constants';
-import {Colors, Spacings, hexColorWithOpacity} from '@theme';
+import { Colors, Spacings, hexColorWithOpacity } from '@theme';
+
+import { Device } from '@constants';
 
 const styles = StyleSheet.create({
   overlay: {

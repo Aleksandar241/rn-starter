@@ -1,4 +1,4 @@
-import type {LogOptions, LoggerProps} from './types';
+import type { LogOptions, LoggerProps } from './types';
 
 const Logger: LoggerProps = Object.create({
   log: (message: string, options: LogOptions = {}) => {

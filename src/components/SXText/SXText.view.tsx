@@ -1,9 +1,10 @@
 import React from 'react';
-import {Text, View} from 'react-native';
 
-import {SXTouchable} from '../SXTouchable';
+import { Text, View } from 'react-native';
+
+import { SXTouchable } from '../SXTouchable';
 import styles from './styles';
-import type {SXTextProps} from './types';
+import type { SXTextProps } from './types';
 import useViewModel from './useViewModel';
 
 const SXText: SXTextProps = ({
@@ -17,7 +18,7 @@ const SXText: SXTextProps = ({
   style,
   ...rest
 }) => {
-  const {textContent, fontStyle, textColor} = useViewModel({
+  const { textContent, fontStyle, textColor } = useViewModel({
     color,
     font,
     children,
@@ -27,7 +28,7 @@ const SXText: SXTextProps = ({
   const TextContent = (
     <Text
       {...rest}
-      style={[styles.textDefault, style, fontStyle, {color: textColor}]}
+      style={[styles.textDefault, style, fontStyle, { color: textColor }]}
       children={textContent || ''}
     />
   );

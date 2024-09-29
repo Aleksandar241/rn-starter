@@ -1,4 +1,4 @@
-import {act, renderHook} from '@testing-library/react-hooks';
+import { act, renderHook } from '@testing-library/react-hooks';
 
 import useViewModel from './useViewModel';
 
@@ -7,7 +7,9 @@ describe('useViewModel', () => {
     const initialValue = false;
     const onPress = jest.fn();
 
-    const {result} = renderHook(() => useViewModel({initialValue, onPress}));
+    const { result } = renderHook(() =>
+      useViewModel({ initialValue, onPress }),
+    );
 
     expect(result.current.isChecked).toBe(initialValue);
 

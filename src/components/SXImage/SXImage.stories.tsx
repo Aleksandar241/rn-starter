@@ -1,12 +1,13 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
 
-import {action} from '@storybook/addon-actions';
-import {Meta, StoryFn} from '@storybook/react';
+import { StyleSheet } from 'react-native';
 
-import {SXScreen} from '../SXScreen';
+import { action } from '@storybook/addon-actions';
+import { Meta, StoryFn } from '@storybook/react';
+
+import { SXScreen } from '../SXScreen';
 import SXImage from './SXImage.view';
-import type {SXImageProps} from './types';
+import type { SXImageProps } from './types';
 
 export default {
   title: 'SXImage',

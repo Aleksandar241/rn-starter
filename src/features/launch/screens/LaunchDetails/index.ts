@@ -1,1 +1,1 @@
-export {default as LaunchDetails} from './LaunchDetails.view';
+export { default as LaunchDetails } from './LaunchDetails.view';

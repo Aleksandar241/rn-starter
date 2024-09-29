@@ -1,11 +1,12 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
 
-import {Meta, StoryFn} from '@storybook/react';
+import { StyleSheet } from 'react-native';
 
-import {SXScreen} from '../SXScreen';
+import { Meta, StoryFn } from '@storybook/react';
+
+import { SXScreen } from '../SXScreen';
 import SXLoading from './SXLoading.view';
-import type {SXLoadingProps} from './types';
+import type { SXLoadingProps } from './types';
 
 export default {
   title: 'SXLoading',

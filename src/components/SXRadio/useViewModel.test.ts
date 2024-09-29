@@ -1,4 +1,4 @@
-import {act, renderHook} from '@testing-library/react-hooks';
+import { act, renderHook } from '@testing-library/react-hooks';
 
 import useViewModel from './useViewModel';
 
@@ -7,7 +7,7 @@ describe('useViewModel', () => {
     const selected = false;
     const onPress = jest.fn();
 
-    const {result} = renderHook(() => useViewModel({selected, onPress}));
+    const { result } = renderHook(() => useViewModel({ selected, onPress }));
 
     act(() => {
       result.current.onPressHandler();

@@ -1,11 +1,12 @@
-import {useCallback} from 'react';
-import {useTranslation as useTranslationI18} from 'react-i18next';
+import { useCallback } from 'react';
 
-import {en as primaryLang} from './locales/en';
-import {TranslateProps, TranslationKeys, useTranslationReturn} from './types';
+import { useTranslation as useTranslationI18 } from 'react-i18next';
+
+import { en as primaryLang } from './locales/en';
+import { TranslateProps, TranslationKeys, useTranslationReturn } from './types';
 
 export const useTranslation = () => {
-  const {t, i18n} = useTranslationI18();
+  const { t, i18n } = useTranslationI18();
 
   const exists = useCallback(
     (key: TranslationKeys, options?: any) => {
@@ -25,7 +26,7 @@ export const useTranslation = () => {
   );
 
   const translate = useCallback(
-    ({fb, text}: TranslateProps): string => {
+    ({ fb, text }: TranslateProps): string => {
       if (typeof text === 'string' && exists(text)) {
         return t(text);
       }
@@ -38,5 +39,5 @@ export const useTranslation = () => {
     [exists, t],
   );
 
-  return {exists, translate} as useTranslationReturn;
+  return { exists, translate } as useTranslationReturn;
 };

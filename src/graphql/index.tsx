@@ -1,33 +1,40 @@
-import {gql} from '@apollo/client';
+import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
 
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
-export type Exact<T extends {[key: string]: unknown}> = {[K in keyof T]: T[K]};
+export type Exact<T extends { [key: string]: unknown }> = {
+  [K in keyof T]: T[K];
+};
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
   [SubKey in K]?: Maybe<T[SubKey]>;
 };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
   [SubKey in K]: Maybe<T[SubKey]>;
 };
-export type MakeEmpty<T extends {[key: string]: unknown}, K extends keyof T> = {
+export type MakeEmpty<
+  T extends { [key: string]: unknown },
+  K extends keyof T,
+> = {
   [_ in K]?: never;
 };
 export type Incremental<T> =
   | T
-  | {[P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never};
+  | {
+      [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never;
+    };
 const defaultOptions = {} as const;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
-  ID: {input: string; output: string};
-  String: {input: string; output: string};
-  Boolean: {input: boolean; output: boolean};
-  Int: {input: number; output: number};
-  Float: {input: number; output: number};
-  Date: {input: any; output: any};
-  ObjectID: {input: any; output: any};
-  timestamptz: {input: any; output: any};
-  uuid: {input: any; output: any};
+  ID: { input: string; output: string };
+  String: { input: string; output: string };
+  Boolean: { input: boolean; output: boolean };
+  Int: { input: number; output: number };
+  Float: { input: number; output: number };
+  Date: { input: any; output: any };
+  ObjectID: { input: any; output: any };
+  timestamptz: { input: any; output: any };
+  uuid: { input: any; output: any };
 };
 
 export type Address = {
@@ -1309,7 +1316,10 @@ export type GetLaunchDetailsQuery = {
     mission_name?: string | null;
     details?: string | null;
     launch_date_utc?: any | null;
-    launch_site?: {__typename?: 'LaunchSite'; site_name?: string | null} | null;
+    launch_site?: {
+      __typename?: 'LaunchSite';
+      site_name?: string | null;
+    } | null;
     links?: {
       __typename?: 'LaunchLinks';
       article_link?: string | null;
@@ -1323,7 +1333,7 @@ export type GetLaunchDetailsQuery = {
   } | null;
 };
 
-export type GetLaunchesQueryVariables = Exact<{[key: string]: never}>;
+export type GetLaunchesQueryVariables = Exact<{ [key: string]: never }>;
 
 export type GetLaunchesQuery = {
   __typename?: 'Query';
@@ -1390,11 +1400,11 @@ export function useGetLaunchDetailsQuery(
     GetLaunchDetailsQueryVariables
   > &
     (
-      | {variables: GetLaunchDetailsQueryVariables; skip?: boolean}
-      | {skip: boolean}
+      | { variables: GetLaunchDetailsQueryVariables; skip?: boolean }
+      | { skip: boolean }
     ),
 ) {
-  const options = {...defaultOptions, ...baseOptions};
+  const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useQuery<GetLaunchDetailsQuery, GetLaunchDetailsQueryVariables>(
     GetLaunchDetailsDocument,
     options,
@@ -1406,7 +1416,7 @@ export function useGetLaunchDetailsLazyQuery(
     GetLaunchDetailsQueryVariables
   >,
 ) {
-  const options = {...defaultOptions, ...baseOptions};
+  const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useLazyQuery<
     GetLaunchDetailsQuery,
     GetLaunchDetailsQueryVariables
@@ -1418,7 +1428,7 @@ export function useGetLaunchDetailsSuspenseQuery(
     GetLaunchDetailsQueryVariables
   >,
 ) {
-  const options = {...defaultOptions, ...baseOptions};
+  const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useSuspenseQuery<
     GetLaunchDetailsQuery,
     GetLaunchDetailsQueryVariables
@@ -1468,7 +1478,7 @@ export function useGetLaunchesQuery(
     GetLaunchesQueryVariables
   >,
 ) {
-  const options = {...defaultOptions, ...baseOptions};
+  const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useQuery<GetLaunchesQuery, GetLaunchesQueryVariables>(
     GetLaunchesDocument,
     options,
@@ -1480,7 +1490,7 @@ export function useGetLaunchesLazyQuery(
     GetLaunchesQueryVariables
   >,
 ) {
-  const options = {...defaultOptions, ...baseOptions};
+  const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useLazyQuery<GetLaunchesQuery, GetLaunchesQueryVariables>(
     GetLaunchesDocument,
     options,
@@ -1492,7 +1502,7 @@ export function useGetLaunchesSuspenseQuery(
     GetLaunchesQueryVariables
   >,
 ) {
-  const options = {...defaultOptions, ...baseOptions};
+  const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useSuspenseQuery<GetLaunchesQuery, GetLaunchesQueryVariables>(
     GetLaunchesDocument,
     options,

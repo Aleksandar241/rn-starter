@@ -1,11 +1,12 @@
 import React from 'react';
 
-import {Login} from '@features/auth';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import {SCREEN_OPTIONS} from '../options';
-import {AppRoute} from '../routes';
-import type {AuthNavigatorParamsList} from './types';
+import { Login } from '@features/auth';
+
+import { SCREEN_OPTIONS } from '../options';
+import { AppRoute } from '../routes';
+import type { AuthNavigatorParamsList } from './types';
 
 const AuthStack = createNativeStackNavigator<AuthNavigatorParamsList>();
 

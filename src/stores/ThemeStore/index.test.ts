@@ -1,7 +1,8 @@
-import {Appearance} from 'react-native';
+import { Appearance } from 'react-native';
 
-import {StorageService} from '@services';
-import {act, renderHook} from '@testing-library/react-hooks';
+import { act, renderHook } from '@testing-library/react-hooks';
+
+import { StorageService } from '@services';
 
 import useThemeStore from './index';
 
@@ -31,7 +32,7 @@ describe('useThemeStore', () => {
   it('should initialize with light theme if no persisted theme and no system preference', () => {
     mockAppearance.getColorScheme.mockReturnValue(null);
 
-    const {result} = renderHook(() => useThemeStore());
+    const { result } = renderHook(() => useThemeStore());
 
     expect(result.current.theme).toBe('light');
   });
@@ -39,7 +40,7 @@ describe('useThemeStore', () => {
   it('should set and persist a new theme', () => {
     const setItemMock = StorageService.get().setItem;
 
-    const {result} = renderHook(() => useThemeStore());
+    const { result } = renderHook(() => useThemeStore());
 
     act(() => {
       result.current.setTheme('dark');
@@ -48,7 +49,7 @@ describe('useThemeStore', () => {
     expect(result.current.theme).toBe('dark');
     expect(setItemMock).toHaveBeenCalledWith(
       'theme-storage',
-      JSON.stringify({state: {theme: 'dark'}, version: 0}),
+      JSON.stringify({ state: { theme: 'dark' }, version: 0 }),
     );
   });
 });

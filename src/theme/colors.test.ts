@@ -1,4 +1,4 @@
-import {Colors, HexOpacity, hexColorWithOpacity} from './colors';
+import { Colors, HexOpacity, hexColorWithOpacity } from './colors';
 
 describe('hexColorWithOpacity', () => {
   it('should return the hex color with opacity', () => {

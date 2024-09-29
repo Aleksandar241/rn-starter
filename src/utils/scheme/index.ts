@@ -1,7 +1,7 @@
-import {yupResolver} from '@hookform/resolvers/yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
-import {SchemeResolverProps} from './types';
+import { SchemeResolverProps } from './types';
 
 const resolve = (schema: SchemeResolverProps) => yupResolver(schema);
 

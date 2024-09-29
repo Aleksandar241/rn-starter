@@ -1,3 +1,4 @@
+import { act, renderHook } from '@testing-library/react-hooks';
 import {
   SharedValue,
   useAnimatedScrollHandler,
@@ -5,11 +6,10 @@ import {
   useSharedValue,
 } from 'react-native-reanimated';
 
-import {useTheme} from '@hooks';
-import {act, renderHook} from '@testing-library/react-hooks';
+import { useTheme } from '@hooks';
 
-import {useIndicatorViewModel} from './useViewModel';
-import {useSXCarouselViewModel} from './useViewModel';
+import { useIndicatorViewModel } from './useViewModel';
+import { useSXCarouselViewModel } from './useViewModel';
 import useViewModelFactory from './useViewModel';
 
 jest.mock('react-native-reanimated', () => ({
@@ -40,12 +40,12 @@ describe('useViewModelFactory', () => {
     useIndicatorViewModel as jest.MockedFunction<typeof useIndicatorViewModel>;
 
   it('should return useSXCarouselViewModel when type is "carousel"', () => {
-    const {result} = renderHook(() => useViewModelFactory('carousel'));
+    const { result } = renderHook(() => useViewModelFactory('carousel'));
     expect(result.current).toBe(mockUseSXCarouselViewModel);
   });
 
   it('should return useIndicatorViewModel when type is "indicator"', () => {
-    const {result} = renderHook(() => useViewModelFactory('indicator'));
+    const { result } = renderHook(() => useViewModelFactory('indicator'));
     expect(result.current).toBe(mockUseIndicatorViewModel);
   });
 });
@@ -58,7 +58,7 @@ describe('useSXCarouselViewModel', () => {
     useAnimatedScrollHandler as jest.MockedFunction<
       typeof useAnimatedScrollHandler
     >;
-  const mockScrollOffset = {value: 0} as SharedValue<number>;
+  const mockScrollOffset = { value: 0 } as SharedValue<number>;
   const mockScrollHandler = jest.fn(
     val => (mockScrollOffset.value = val.nativeEvent.contentOffset.x),
   );
@@ -69,18 +69,18 @@ describe('useSXCarouselViewModel', () => {
   });
 
   it('should return scrollOffset and scrollHandler', () => {
-    const {result} = renderHook(() => useSXCarouselViewModel());
+    const { result } = renderHook(() => useSXCarouselViewModel());
 
     expect(result.current.scrollOffset).toBe(mockScrollOffset);
     expect(result.current.scrollHandler).toBe(mockScrollHandler);
   });
 
   it('should update scrollOffset on scroll event', () => {
-    const {result} = renderHook(() => useSXCarouselViewModel());
+    const { result } = renderHook(() => useSXCarouselViewModel());
 
-    const scrollEvent = {contentOffset: {x: 100}};
+    const scrollEvent = { contentOffset: { x: 100 } };
     act(() => {
-      result.current.scrollHandler({nativeEvent: scrollEvent} as any);
+      result.current.scrollHandler({ nativeEvent: scrollEvent } as any);
     });
 
     expect(mockScrollOffset.value).toBe(100);
@@ -103,16 +103,16 @@ describe('useIndicatorViewModel', () => {
       theme: {} as any,
     });
     mockUseAnimatedStyle.mockImplementation(
-      jest.fn(() => ({backgroundColor: 'red', width: 100})),
+      jest.fn(() => ({ backgroundColor: 'red', width: 100 })),
     );
   });
 
   it('should return correct animatedStyle based on scrollOffset and index', () => {
-    const scrollOffset = {value: 50};
+    const scrollOffset = { value: 50 };
     const index = 1;
 
-    const {result} = renderHook(() =>
-      useIndicatorViewModel({scrollOffset, index}),
+    const { result } = renderHook(() =>
+      useIndicatorViewModel({ scrollOffset, index }),
     );
 
     expect(mockGetColor).toHaveBeenCalledWith('primary');

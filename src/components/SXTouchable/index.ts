@@ -1,1 +1,1 @@
-export {default as SXTouchable} from './SXTouchable.view';
+export { default as SXTouchable } from './SXTouchable.view';

@@ -1,14 +1,15 @@
 import React from 'react';
 
-import {render} from '@testing-library/react-native';
-import {Logger} from '@utils';
+import { render } from '@testing-library/react-native';
+
+import { Logger } from '@utils';
 
 import SXList from './SXList.view';
 
 describe('SXList', () => {
   jest.spyOn(Logger, 'error').mockImplementation(() => {});
   it('renders loading state correctly', () => {
-    const {getByTestId} = render(
+    const { getByTestId } = render(
       <SXList loading={true} renderItem={() => <></>} data={[]} />,
     );
     const loadingElement = getByTestId('SX-LOADING');
@@ -16,7 +17,7 @@ describe('SXList', () => {
   });
 
   it('renders error state correctly', () => {
-    const {getByText} = render(
+    const { getByText } = render(
       <SXList
         loading={false}
         error={true}
@@ -31,8 +32,8 @@ describe('SXList', () => {
   });
 
   it('renders data correctly', () => {
-    const {queryByText, queryByTestId} = render(
-      <SXList renderItem={() => <></>} data={[{id: '1', name: 'Test'}]} />,
+    const { queryByText, queryByTestId } = render(
+      <SXList renderItem={() => <></>} data={[{ id: '1', name: 'Test' }]} />,
     );
 
     const errorElement = queryByText('Something went wrong');

@@ -1,10 +1,10 @@
-import {renderHook} from '@testing-library/react-hooks';
+import { renderHook } from '@testing-library/react-hooks';
 
 import useViewModel from './useViewModel';
 
 describe('useViewModel', () => {
   it('should generate the element correctly', () => {
-    const {result} = renderHook(() =>
+    const { result } = renderHook(() =>
       useViewModel({
         testID: 'test-id',
         width: 200,

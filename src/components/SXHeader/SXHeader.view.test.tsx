@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {render} from '@testing-library/react-native';
+import { render } from '@testing-library/react-native';
 
 import SXHeader from './SXHeader.view';
 

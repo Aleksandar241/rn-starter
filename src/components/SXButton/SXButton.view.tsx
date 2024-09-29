@@ -1,9 +1,9 @@
 import React from 'react';
 
-import {SXText} from '../SXText';
-import {SXTouchable} from '../SXTouchable';
+import { SXText } from '../SXText';
+import { SXTouchable } from '../SXTouchable';
 import styles from './styles';
-import type {SXButtonProps} from './types';
+import type { SXButtonProps } from './types';
 import useViewModel from './useViewModel';
 
 const SXButton: SXButtonProps = ({
@@ -14,7 +14,7 @@ const SXButton: SXButtonProps = ({
   type = 'primary',
   onPress,
 }) => {
-  const {buttonStyle} = useViewModel({type, disabled});
+  const { buttonStyle } = useViewModel({ type, disabled });
 
   return (
     <SXTouchable

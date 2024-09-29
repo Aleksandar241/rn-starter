@@ -1,9 +1,9 @@
-import {useTheme} from '@hooks';
+import { useTheme } from '@hooks';
 
-import {ViewModelProps} from './types';
+import { ViewModelProps } from './types';
 
-const useViewModel = ({type, disabled}: ViewModelProps) => {
-  const {getColor} = useTheme();
+const useViewModel = ({ type, disabled }: ViewModelProps) => {
+  const { getColor } = useTheme();
 
   const getButtonStyle = () => {
     if (disabled) {

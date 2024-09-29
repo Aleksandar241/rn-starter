@@ -1,4 +1,5 @@
-import type {FC, ForwardedRef, LegacyRef} from 'react';
+import type { FC, ForwardedRef, LegacyRef } from 'react';
+
 import type {
   StyleProp,
   TextInput,
@@ -6,10 +7,10 @@ import type {
   ViewStyle,
 } from 'react-native';
 
-import type {Maybe} from '@types';
+import type { Maybe } from '@types';
 
-import {TranslatedTextProps} from '../../translations/types';
-import {SXIconProps} from '../SXIcon';
+import { TranslatedTextProps } from '../../translations/types';
+import { SXIconProps } from '../SXIcon';
 
 export type ViewModelProps = {
   isPassword?: boolean;

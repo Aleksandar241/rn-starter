@@ -1,6 +1,6 @@
-import {create} from 'zustand';
+import { create } from 'zustand';
 
-import type {RootModalStore} from './types';
+import type { RootModalStore } from './types';
 
 const useRootModalStore = create<RootModalStore>(set => ({
   content: [],

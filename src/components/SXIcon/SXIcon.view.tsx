@@ -1,11 +1,13 @@
 import React from 'react';
-import {View} from 'react-native';
 
-import {Spacings} from '@theme';
-import {Logger} from '@utils';
+import { View } from 'react-native';
 
-import {SXTouchable} from '../SXTouchable';
-import type {SXIconProps} from './types';
+import { Spacings } from '@theme';
+
+import { Logger } from '@utils';
+
+import { SXTouchable } from '../SXTouchable';
+import type { SXIconProps } from './types';
 import useViewModel from './useViewModel';
 
 const SXIcon: SXIconProps = ({
@@ -16,10 +18,10 @@ const SXIcon: SXIconProps = ({
   onPress,
   ...rest
 }) => {
-  const {Icon, fill} = useViewModel(rest);
+  const { Icon, fill } = useViewModel(rest);
 
   if (!Icon) {
-    Logger.log('This icon cannot be loaded', {location: 'SXIcon'});
+    Logger.log('This icon cannot be loaded', { location: 'SXIcon' });
     return null;
   }
 

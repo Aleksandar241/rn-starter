@@ -1,7 +1,7 @@
-import {useRootModalStore} from '@stores';
+import { useRootModalStore } from '@stores';
 
 const useViewModel = () => {
-  const {content, pop} = useRootModalStore();
+  const { content, pop } = useRootModalStore();
   const modalContent = content?.[content?.length - 1];
 
   return {

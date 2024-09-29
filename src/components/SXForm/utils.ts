@@ -1,13 +1,14 @@
-import {createElement, forwardRef, memo} from 'react';
+import { createElement, forwardRef, memo } from 'react';
+
 import {
   Controller,
   ControllerFieldState,
   ControllerRenderProps,
 } from 'react-hook-form';
 
-import {Maybe} from '@types';
+import { Maybe } from '@types';
 
-import {BaseProps, FComponent} from './types';
+import { BaseProps, FComponent } from './types';
 
 /**
  * Renders a controlled component using the `Controller` component from react-hook-form.
@@ -19,7 +20,7 @@ import {BaseProps, FComponent} from './types';
 
 export const createControlledComponent = <T extends object>(
   Component: FComponent<T>,
-  options: {changeField?: Maybe<keyof T>; valueField?: Maybe<keyof T>} = {
+  options: { changeField?: Maybe<keyof T>; valueField?: Maybe<keyof T> } = {
     changeField: 'onChange' as keyof T,
     valueField: null,
   },
@@ -43,7 +44,7 @@ export const createControlledComponent = <T extends object>(
   });
 
   const ControlledComponent = forwardRef<any, BaseProps<T>>(
-    ({name, control, ...restProps}, ref) => {
+    ({ name, control, ...restProps }, ref) => {
       const render: any = ({
         field,
         fieldState,
@@ -62,7 +63,7 @@ export const createControlledComponent = <T extends object>(
           },
           [options?.changeField as string]: field.onChange,
           error: fieldState.error?.message,
-          ...(options?.valueField && {[options.valueField]: field.value}),
+          ...(options?.valueField && { [options.valueField]: field.value }),
           ...restProps,
           ref,
         };

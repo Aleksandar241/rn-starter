@@ -1,1 +1,1 @@
-export {default as SXCheckbox} from './SXCheckbox.view';
+export { default as SXCheckbox } from './SXCheckbox.view';

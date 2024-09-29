@@ -1,1 +1,1 @@
-export {default as LaunchCard} from './LaunchCard.view';
+export { default as LaunchCard } from './LaunchCard.view';

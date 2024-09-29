@@ -1,11 +1,12 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
 
-import {Meta, StoryFn} from '@storybook/react';
+import { StyleSheet, View } from 'react-native';
 
-import {SXScreen} from '../SXScreen';
+import { Meta, StoryFn } from '@storybook/react';
+
+import { SXScreen } from '../SXScreen';
 import SXSkeleton from './SXSkeleton.view';
-import type {SXSkeletonProps} from './types';
+import type { SXSkeletonProps } from './types';
 
 export default {
   title: 'SXSkeleton',

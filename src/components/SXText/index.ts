@@ -1,1 +1,1 @@
-export {default as SXText} from './SXText.view';
+export { default as SXText } from './SXText.view';

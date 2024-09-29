@@ -1,4 +1,4 @@
-import {renderHook} from '@testing-library/react-hooks';
+import { renderHook } from '@testing-library/react-hooks';
 
 import useViewModel from './useViewModel';
 
@@ -24,8 +24,8 @@ jest.mock('@theme', () => ({
 
 describe('useViewModel', () => {
   it('should return the correct textColor and fontStyle', () => {
-    const {result} = renderHook(() =>
-      useViewModel({color: 'primary', font: 'DEFAULT-PETITE/REGULAR'}),
+    const { result } = renderHook(() =>
+      useViewModel({ color: 'primary', font: 'DEFAULT-PETITE/REGULAR' }),
     );
 
     expect(result.current.textColor).toBe('primary');
@@ -33,7 +33,7 @@ describe('useViewModel', () => {
   });
 
   it('should use default font when no font is provided', () => {
-    const {result} = renderHook(() => useViewModel({color: 'primary'}));
+    const { result } = renderHook(() => useViewModel({ color: 'primary' }));
 
     expect(result.current.textColor).toBe('primary');
     expect(result.current.fontStyle).toEqual(mockFont);

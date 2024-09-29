@@ -1,19 +1,19 @@
-import {act, renderHook} from '@testing-library/react-hooks';
+import { act, renderHook } from '@testing-library/react-hooks';
 
 import useRootModalStore from './index';
 
 describe('useRootModalStore', () => {
   beforeEach(() => {
-    useRootModalStore.setState({content: []});
+    useRootModalStore.setState({ content: [] });
   });
 
   it('should initialize with an empty content array', () => {
-    const {result} = renderHook(() => useRootModalStore());
+    const { result } = renderHook(() => useRootModalStore());
     expect(result.current.content).toEqual([]);
   });
 
   it('should add new content to the array when push is called', () => {
-    const {result} = renderHook(() => useRootModalStore());
+    const { result } = renderHook(() => useRootModalStore());
 
     act(() => {
       result.current.push('First Content');
@@ -29,7 +29,7 @@ describe('useRootModalStore', () => {
   });
 
   it('should remove the last content from the array when pop is called', () => {
-    const {result} = renderHook(() => useRootModalStore());
+    const { result } = renderHook(() => useRootModalStore());
 
     act(() => {
       result.current.push('First Content');
@@ -52,7 +52,7 @@ describe('useRootModalStore', () => {
   });
 
   it('should not pop from an empty array', () => {
-    const {result} = renderHook(() => useRootModalStore());
+    const { result } = renderHook(() => useRootModalStore());
 
     act(() => {
       result.current.pop();

@@ -1,16 +1,17 @@
-import {createElement, useCallback} from 'react';
+import { createElement, useCallback } from 'react';
 
-import {Launch, useGetLaunchesQuery} from '@graphql';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 
-import {LaunchRoutes} from '../../constants';
-import {LaunchCard} from '../LaunchCard';
+import { Launch, useGetLaunchesQuery } from '@graphql';
+
+import { LaunchRoutes } from '../../constants';
+import { LaunchCard } from '../LaunchCard';
 
 const useViewModel = () => {
   const navigation =
     useNavigation<MainNavigatorParams['LaunchDetailsScreen']['navigation']>();
 
-  const {data, loading, error, refetch} = useGetLaunchesQuery();
+  const { data, loading, error, refetch } = useGetLaunchesQuery();
   const launches = data?.launches || [];
   const onLaunchPress = useCallback(
     (id: Launch['id']) =>
@@ -20,7 +21,7 @@ const useViewModel = () => {
     [navigation],
   );
 
-  const renderItem = ({item}: {item: Launch}) =>
+  const renderItem = ({ item }: { item: Launch }) =>
     createElement(LaunchCard, {
       data: item,
       onPress: onLaunchPress,

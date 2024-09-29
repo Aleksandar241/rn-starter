@@ -6,8 +6,9 @@ import {
   useSharedValue,
 } from 'react-native-reanimated';
 
-import {Device} from '@constants';
-import {useTheme} from '@hooks';
+import { Device } from '@constants';
+
+import { useTheme } from '@hooks';
 
 import type {
   ViewModelIndicatorProps,
@@ -31,7 +32,7 @@ export const useIndicatorViewModel = ({
   scrollOffset,
   index,
 }: ViewModelIndicatorProps): ViewModelIndicatorReturn => {
-  const {getColor} = useTheme();
+  const { getColor } = useTheme();
 
   const COLOR_OFF = getColor('primary');
   const COLOR_ON = getColor('secondary');

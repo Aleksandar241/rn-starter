@@ -1,5 +1,6 @@
-import type {FC} from 'react';
-import type {StyleProp, ViewStyle} from 'react-native';
+import type { FC } from 'react';
+
+import type { StyleProp, ViewStyle } from 'react-native';
 
 type Props = {
   testID?: string;

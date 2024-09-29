@@ -1,8 +1,8 @@
-import type {SXSkeletonProps} from './types';
+import type { SXSkeletonProps } from './types';
 import useViewModel from './useViewModel';
 
-const SXSkeleton: SXSkeletonProps = ({children, loading, ...rest}) => {
-  const {generateElement} = useViewModel(rest);
+const SXSkeleton: SXSkeletonProps = ({ children, loading, ...rest }) => {
+  const { generateElement } = useViewModel(rest);
 
   if (!loading) {
     return children;

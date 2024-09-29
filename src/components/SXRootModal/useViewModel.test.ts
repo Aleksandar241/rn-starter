@@ -1,5 +1,6 @@
-import {useRootModalStore} from '@stores';
-import {act, renderHook} from '@testing-library/react-hooks';
+import { act, renderHook } from '@testing-library/react-hooks';
+
+import { useRootModalStore } from '@stores';
 
 import useViewModel from './useViewModel';
 
@@ -25,7 +26,7 @@ describe('useViewModel', () => {
       pop: mockPop,
     });
 
-    const {result} = renderHook(() => useViewModel());
+    const { result } = renderHook(() => useViewModel());
 
     expect(result.current.content).toBe(mockContent);
     expect(result.current.onHide).toBe(mockPop);
@@ -37,7 +38,7 @@ describe('useViewModel', () => {
       pop: mockPop,
     });
 
-    const {result} = renderHook(() => useViewModel());
+    const { result } = renderHook(() => useViewModel());
 
     expect(result.current.content).toBeUndefined();
     expect(result.current.onHide).toBe(mockPop);
@@ -49,7 +50,7 @@ describe('useViewModel', () => {
       pop: mockPop,
     });
 
-    const {result} = renderHook(() => useViewModel());
+    const { result } = renderHook(() => useViewModel());
 
     act(() => {
       result.current.onHide();

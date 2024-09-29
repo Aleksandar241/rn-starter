@@ -1,1 +1,1 @@
-export {default as SXLoading} from './SXLoading.view';
+export { default as SXLoading } from './SXLoading.view';

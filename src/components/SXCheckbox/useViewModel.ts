@@ -1,20 +1,20 @@
-import {useState} from 'react';
+import { useState } from 'react';
 
-import {useTheme} from '@hooks';
+import { useTheme } from '@hooks';
 
-import type {ViewModelProps} from './types';
+import type { ViewModelProps } from './types';
 
-const useViewModel = ({initialValue = false, onPress}: ViewModelProps) => {
+const useViewModel = ({ initialValue = false, onPress }: ViewModelProps) => {
   const [isChecked, setIsChecked] = useState(initialValue);
 
-  const {getColor} = useTheme();
+  const { getColor } = useTheme();
 
   const onPressHandler = () => {
     onPress(!isChecked);
     setIsChecked(prev => !prev);
   };
 
-  return {isChecked, borderColor: getColor('primary'), onPressHandler};
+  return { isChecked, borderColor: getColor('primary'), onPressHandler };
 };
 
 export default useViewModel;

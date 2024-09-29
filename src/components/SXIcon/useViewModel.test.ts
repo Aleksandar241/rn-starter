@@ -1,5 +1,5 @@
-import {Icons} from '@icons';
-import {renderHook} from '@testing-library/react-hooks';
+import { Icons } from '@icons';
+import { renderHook } from '@testing-library/react-hooks';
 
 import useViewModel from './useViewModel';
 
@@ -17,8 +17,8 @@ jest.mock('@icons', () => ({
 
 describe('useViewModel', () => {
   it('should return the correct Icon and fill value', () => {
-    const {result} = renderHook(() =>
-      useViewModel({icon: 'rocket', color: 'primary'}),
+    const { result } = renderHook(() =>
+      useViewModel({ icon: 'rocket', color: 'primary' }),
     );
 
     expect(result.current.Icon).toBe(Icons.rocket);
@@ -26,16 +26,16 @@ describe('useViewModel', () => {
   });
 
   it('should use default color when no color is provided', () => {
-    const {result} = renderHook(() => useViewModel({icon: 'rocket'}));
+    const { result } = renderHook(() => useViewModel({ icon: 'rocket' }));
 
     expect(result.current.Icon).toBe(Icons.rocket);
     expect(result.current.fill).toBe('text');
   });
 
   it('should handle an invalid icon gracefully', () => {
-    const {result} = renderHook(() =>
+    const { result } = renderHook(() =>
       // @ts-ignore
-      useViewModel({icon: 'InvalidIcon', color: 'primary'}),
+      useViewModel({ icon: 'InvalidIcon', color: 'primary' }),
     );
 
     expect(result.current.Icon).toBeUndefined();

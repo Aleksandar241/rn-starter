@@ -1,8 +1,9 @@
 import React from 'react';
-import {View} from 'react-native';
-import {useSharedValue} from 'react-native-reanimated';
 
-import {render, renderHook} from '@testing-library/react-native';
+import { View } from 'react-native';
+
+import { render, renderHook } from '@testing-library/react-native';
+import { useSharedValue } from 'react-native-reanimated';
 
 import SXCarousel from './SXCarousel.view';
 import useViewModelFactory from './useViewModel';
@@ -15,7 +16,7 @@ const mockUseViewModelFactory = useViewModelFactory as jest.Mocked<
 
 describe('SXCarousel', () => {
   const scrollHandler = jest.fn();
-  const {result} = renderHook(() => useSharedValue(0));
+  const { result } = renderHook(() => useSharedValue(0));
   const scrollOffset = result.current;
 
   it('renders correctly with children', () => {
@@ -30,7 +31,7 @@ describe('SXCarousel', () => {
       <View key="3" testID="child-3" />,
     ];
 
-    const {getByTestId, queryByTestId} = render(
+    const { getByTestId, queryByTestId } = render(
       <SXCarousel>{children}</SXCarousel>,
     );
 
@@ -45,10 +46,10 @@ describe('SXCarousel', () => {
 
   it('calls scrollHandler on scroll', () => {
     const children = [<View key="1" testID="child-1" />];
-    const {getByTestId} = render(<SXCarousel>{children}</SXCarousel>);
+    const { getByTestId } = render(<SXCarousel>{children}</SXCarousel>);
 
     const scrollView = getByTestId('SX-CAROUSEL');
-    scrollView.props.onScroll({nativeEvent: {contentOffset: {x: 100}}});
+    scrollView.props.onScroll({ nativeEvent: { contentOffset: { x: 100 } } });
 
     expect(scrollHandler).toHaveBeenCalled();
   });

@@ -1,11 +1,12 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
 
-import {Meta, StoryFn} from '@storybook/react';
+import { StyleSheet, View } from 'react-native';
 
-import {SXScreen} from '../SXScreen';
+import { Meta, StoryFn } from '@storybook/react';
+
+import { SXScreen } from '../SXScreen';
 import SXList from './SXList.view';
-import {SXListProps} from './types';
+import { SXListProps } from './types';
 
 export default {
   title: 'SXList',
@@ -37,7 +38,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const Template: StoryFn<SXListProps<{id: string}>> = args => (
+const Template: StoryFn<SXListProps<{ id: string }>> = args => (
   <SXScreen style={styles.container}>
     <SXList {...args} />
   </SXScreen>
@@ -45,7 +46,9 @@ const Template: StoryFn<SXListProps<{id: string}>> = args => (
 
 export const Default = Template.bind({});
 Default.args = {
-  data: Array.from({length: 10}).map((_, index) => ({id: index.toString()})),
+  data: Array.from({ length: 10 }).map((_, index) => ({
+    id: index.toString(),
+  })),
   estimatedItemSize: 50,
   contentContainerStyle: styles.contentContainer,
   renderItem: () => <View style={styles.view} />,
@@ -65,7 +68,7 @@ withLoading.args = {
 export const withError = Template.bind({});
 withError.args = {
   ...Default.args,
-  error: {message: 'Error'},
+  error: { message: 'Error' },
 };
 
 export const withNoData = Template.bind({});

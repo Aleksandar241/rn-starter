@@ -1,12 +1,18 @@
 import React from 'react';
-import {Modal, View} from 'react-native';
-import {GestureDetector} from 'react-native-gesture-handler';
-import Animated, {FadeIn, FadeOut, SlideInDown} from 'react-native-reanimated';
 
-import {SXAvoidKeyboard} from '../SXAvoidKeyboard';
-import {SXIcon} from '../SXIcon';
+import { Modal, View } from 'react-native';
+
+import { GestureDetector } from 'react-native-gesture-handler';
+import Animated, {
+  FadeIn,
+  FadeOut,
+  SlideInDown,
+} from 'react-native-reanimated';
+
+import { SXAvoidKeyboard } from '../SXAvoidKeyboard';
+import { SXIcon } from '../SXIcon';
 import styles from './styles';
-import type {SXModalProps} from './types';
+import type { SXModalProps } from './types';
 import useViewModel from './useViewModel';
 
 const SXModal: SXModalProps = ({
@@ -18,7 +24,7 @@ const SXModal: SXModalProps = ({
   contentContainerStyle,
   onHide,
 }) => {
-  const {animatedStyles, backgroundColor, gesture, onClose} = useViewModel({
+  const { animatedStyles, backgroundColor, gesture, onClose } = useViewModel({
     onHide,
   });
 
@@ -40,7 +46,7 @@ const SXModal: SXModalProps = ({
             <View
               style={[
                 styles.contentContainer,
-                {backgroundColor},
+                { backgroundColor },
                 contentContainerStyle,
               ]}>
               <View style={styles.closeIconContainer}>

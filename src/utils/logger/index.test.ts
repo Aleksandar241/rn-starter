@@ -19,7 +19,7 @@ describe('Logger', () => {
 
     it('should log a message when in development mode', () => {
       const message = 'Test log message';
-      const options = {location: 'bar'};
+      const options = { location: 'bar' };
 
       Logger.log(message, options);
 
@@ -28,7 +28,7 @@ describe('Logger', () => {
 
     it('should warn a message when in development mode', () => {
       const message = 'Test warn message';
-      const options = {location: 'bar'};
+      const options = { location: 'bar' };
 
       Logger.warn(message, options);
 
@@ -37,7 +37,7 @@ describe('Logger', () => {
 
     it('should error a message when in development mode', () => {
       const message = 'Test error message';
-      const options = {location: 'bar'};
+      const options = { location: 'bar' };
 
       Logger.error(message, options);
 
@@ -53,7 +53,7 @@ describe('Logger', () => {
 
     it('should not log a message in production mode', () => {
       const message = 'Test log message';
-      const options = {location: 'bar'};
+      const options = { location: 'bar' };
 
       Logger.log(message, options);
 
@@ -62,7 +62,7 @@ describe('Logger', () => {
 
     it('should not warn a message in production mode', () => {
       const message = 'Test warn message';
-      const options = {location: 'bar'};
+      const options = { location: 'bar' };
 
       Logger.warn(message, options);
 
@@ -71,7 +71,7 @@ describe('Logger', () => {
 
     it('should not error a message in production mode', () => {
       const message = 'Test error message';
-      const options = {location: 'bar'};
+      const options = { location: 'bar' };
 
       Logger.error(message, options);
 

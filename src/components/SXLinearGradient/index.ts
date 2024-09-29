@@ -1,1 +1,1 @@
-export {default as SXLinearGradient} from './SXLinearGradient.view';
+export { default as SXLinearGradient } from './SXLinearGradient.view';

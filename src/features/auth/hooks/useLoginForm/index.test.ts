@@ -1,7 +1,7 @@
-import {act, renderHook} from '@testing-library/react-hooks';
-import {waitFor} from '@testing-library/react-native';
+import { act, renderHook } from '@testing-library/react-hooks';
+import { waitFor } from '@testing-library/react-native';
 
-import {useLoginForm} from './index';
+import { useLoginForm } from './index';
 
 describe('useLoginForm', () => {
   const onSuccess = jest.fn();
@@ -11,13 +11,13 @@ describe('useLoginForm', () => {
   });
 
   it('should initialize the form with default values', () => {
-    const {result} = renderHook(() => useLoginForm({onSuccess, onError}));
+    const { result } = renderHook(() => useLoginForm({ onSuccess, onError }));
     expect(result.current.getValues('email')).toBe('');
     expect(result.current.getValues('password')).toBe('');
   });
 
   it('should validate the form correctly', async () => {
-    const {result} = renderHook(() => useLoginForm({onSuccess, onError}));
+    const { result } = renderHook(() => useLoginForm({ onSuccess, onError }));
 
     expect(result.current.formState.isValid).toBeFalsy();
 

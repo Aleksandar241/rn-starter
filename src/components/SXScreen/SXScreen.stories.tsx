@@ -1,10 +1,11 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
 
-import {Meta, StoryFn} from '@storybook/react';
+import { StyleSheet, View } from 'react-native';
+
+import { Meta, StoryFn } from '@storybook/react';
 
 import SXScreen from './SXScreen.view';
-import type {SXScreenProps} from './types';
+import type { SXScreenProps } from './types';
 
 export default {
   title: 'SXScreen',

@@ -1,6 +1,8 @@
-import type {FC, PropsWithChildren} from 'react';
-import type {ViewStyle} from 'react-native';
-import type {ScrollHandlerProcessed} from 'react-native-reanimated';
+import type { FC, PropsWithChildren } from 'react';
+
+import type { ViewStyle } from 'react-native';
+
+import type { ScrollHandlerProcessed } from 'react-native-reanimated';
 
 export type ViewModelIndicatorProps = {
   scrollOffset: {

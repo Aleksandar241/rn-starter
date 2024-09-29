@@ -1,13 +1,14 @@
-import {initReactI18next} from 'react-i18next';
-import {NativeModules} from 'react-native';
+import { NativeModules } from 'react-native';
 
-import {Device} from '@constants';
 import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
 
-import {en, sr} from './locales';
+import { Device } from '@constants';
+
+import { en, sr } from './locales';
 
 export * from './useTranslation';
-export type {TranslationKeys} from './types';
+export type { TranslationKeys } from './types';
 
 const RNLanguageDetector = {
   type: 'languageDetector',

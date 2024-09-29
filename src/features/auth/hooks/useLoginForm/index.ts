@@ -1,14 +1,16 @@
-import {useCallback} from 'react';
+import { useCallback } from 'react';
 
-import {Validators} from '@constants';
-import {useForm} from '@hooks';
-import {ResultActions} from '@types';
+import { Validators } from '@constants';
 
-import {useAuthStore} from '../../stores';
-import {Login, LoginForm} from '../../types';
+import { useForm } from '@hooks';
 
-export const useLoginForm = ({onSuccess, onError}: ResultActions) => {
-  const {setIsAuth} = useAuthStore();
+import { ResultActions } from '@types';
+
+import { useAuthStore } from '../../stores';
+import { Login, LoginForm } from '../../types';
+
+export const useLoginForm = ({ onSuccess, onError }: ResultActions) => {
+  const { setIsAuth } = useAuthStore();
 
   const form = useForm<Login>({
     defaultValues: {
@@ -23,7 +25,7 @@ export const useLoginForm = ({onSuccess, onError}: ResultActions) => {
   });
 
   const onSubmit = useCallback(
-    ({email, password}: Login) => {
+    ({ email, password }: Login) => {
       onSuccess?.();
       setIsAuth(true);
     },

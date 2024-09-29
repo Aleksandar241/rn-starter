@@ -1,7 +1,7 @@
-import {useLoginForm} from '@features/auth/hooks';
+import { useLoginForm } from '@features/auth/hooks';
 
 const useViewModel = () => {
-  const {control, handleSubmit} = useLoginForm({});
+  const { control, handleSubmit } = useLoginForm({});
 
   return {
     control,

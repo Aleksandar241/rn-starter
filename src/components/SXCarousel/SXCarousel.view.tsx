@@ -1,17 +1,19 @@
 import React from 'react';
-import {View} from 'react-native';
+
+import { View } from 'react-native';
+
 import Animated from 'react-native-reanimated';
 
-import {Device} from '@constants';
+import { Device } from '@constants';
 
 import Indicator from './Indicator.view';
 import styles from './styles';
-import type {SXCarouselProps} from './types';
+import type { SXCarouselProps } from './types';
 import useViewModelFactory from './useViewModel';
 
-const SXCarousel: SXCarouselProps = ({testID = 'SX-CAROUSEL', children}) => {
+const SXCarousel: SXCarouselProps = ({ testID = 'SX-CAROUSEL', children }) => {
   const useSXCarouselModel = useViewModelFactory('carousel');
-  const {scrollHandler, scrollOffset} = useSXCarouselModel();
+  const { scrollHandler, scrollOffset } = useSXCarouselModel();
 
   return (
     <View>

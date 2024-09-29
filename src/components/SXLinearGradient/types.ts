@@ -1,8 +1,9 @@
-import type {FC} from 'react';
-import type {StyleProp, ViewStyle} from 'react-native';
+import type { FC } from 'react';
 
-import {Color} from '@theme';
-import {LinearGradientProps} from 'expo-linear-gradient';
+import type { StyleProp, ViewStyle } from 'react-native';
+
+import { Color } from '@theme';
+import { LinearGradientProps } from 'expo-linear-gradient';
 
 export type ViewModelProps = {
   colors: Color[];

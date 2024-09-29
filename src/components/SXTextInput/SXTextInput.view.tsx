@@ -1,13 +1,15 @@
-import React, {forwardRef} from 'react';
-import {View} from 'react-native';
-import {TextInput} from 'react-native-gesture-handler';
+import React, { forwardRef } from 'react';
 
-import {TranslationKeys} from '@translations';
+import { View } from 'react-native';
 
-import {SXIcon, SXIconProps} from '../SXIcon';
-import {SXText} from '../SXText';
+import { TextInput } from 'react-native-gesture-handler';
+
+import { TranslationKeys } from '@translations';
+
+import { SXIcon, SXIconProps } from '../SXIcon';
+import { SXText } from '../SXText';
 import styles from './styles';
-import {Props} from './types';
+import { Props } from './types';
 import useViewModel from './useViewModel';
 
 const SXTextInput = forwardRef<TextInput, Props>(
@@ -52,7 +54,7 @@ const SXTextInput = forwardRef<TextInput, Props>(
         {label ? (
           <SXText text={label} font="DEFAULT-COZY/BOLD" style={styles.label} />
         ) : null}
-        <View style={[styles.wrapper, {borderColor}, rest?.style]}>
+        <View style={[styles.wrapper, { borderColor }, rest?.style]}>
           {leftIcon ? (
             <View style={styles.iconContainer}>
               <SXIcon {...leftIcon} />

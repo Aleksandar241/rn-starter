@@ -1,9 +1,10 @@
-import type {FC} from 'react';
-import type {StyleProp, TextProps, TextStyle, ViewStyle} from 'react-native';
+import type { FC } from 'react';
 
-import type {Color, Fonts} from '@theme';
+import type { StyleProp, TextProps, TextStyle, ViewStyle } from 'react-native';
 
-import {TranslatedTextProps} from '../../translations/types';
+import type { Color, Fonts } from '@theme';
+
+import { TranslatedTextProps } from '../../translations/types';
 
 export type ViewModelProps = {
   font?: Fonts;

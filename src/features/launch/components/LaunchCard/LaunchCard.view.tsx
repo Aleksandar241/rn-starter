@@ -1,13 +1,13 @@
 import React from 'react';
 
-import {SXImage, SXText, SXTouchable} from '@components';
+import { SXImage, SXText, SXTouchable } from '@components';
 
 import styles from './styles';
-import {LaunchCardProps} from './types';
+import { LaunchCardProps } from './types';
 import useViewModel from './useViewModel';
 
-const LaunchCard: LaunchCardProps = ({testID, data, ...rest}) => {
-  const {cardStyle, onPressHandler} = useViewModel({...rest, id: data.id});
+const LaunchCard: LaunchCardProps = ({ testID, data, ...rest }) => {
+  const { cardStyle, onPressHandler } = useViewModel({ ...rest, id: data.id });
 
   return (
     <SXTouchable
@@ -16,7 +16,7 @@ const LaunchCard: LaunchCardProps = ({testID, data, ...rest}) => {
       style={[styles.card, cardStyle]}>
       <SXImage
         recyclingKey={data.launch_date_local}
-        style={{width: '100%', height: 40}}
+        style={{ width: '100%', height: 40 }}
         source={
           'https://vastphotos.com/files/uploads/photos/10306/high-resolution-mountains-and-lakes-l.jpg?v=20220712073521'
         }
