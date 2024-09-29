@@ -47,6 +47,9 @@ Default.args = {
   children: 'SPACE-X',
   font: 'DEFAULT-PETITE/REGULAR',
   color: 'primary',
+  style: {
+    textAlign: 'center',
+  },
 };
 
 export const WithOptionalProps = Template.bind({});

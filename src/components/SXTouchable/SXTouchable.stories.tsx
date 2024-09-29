@@ -35,6 +35,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 10,
   },
+  text: {
+    textAlign: 'center',
+  },
 });
 
 export default {
@@ -87,22 +90,22 @@ const CompareButtonsTemplate: StoryFn<SXTouchableProps> = args => {
 
   return (
     <SXScreen style={styles.wrapper}>
-      <SXText children="SX Touchable" />
+      <SXText children="SX Touchable" style={styles.text} />
       <SXTouchable {...args} onPress={onPressSX}>
         <Box text={args.children as string} />
       </SXTouchable>
-      <SXText children="RN Touchable" />
+      <SXText children="RN Touchable" style={styles.text} />
       <TouchableOpacity onPress={onPressRN}>
         <Box text={args.children as string} />
       </TouchableOpacity>
-      <SXText children="RN Pressable" />
+      <SXText children="RN Pressable" style={styles.text} />
       <Pressable onPress={onPressPressable}>
         <Box text={args.children as string} />
       </Pressable>
-      <SXText children="Button" />
+      <SXText children="Button" style={styles.text} />
       <Button title={args.children as string} onPress={onPressButton} />
       <TouchableOpacity onPress={lockThread}>
-        <SXText children="Lock Thread" />
+        <SXText children="Lock Thread" style={styles.text} />
       </TouchableOpacity>
     </SXScreen>
   );
