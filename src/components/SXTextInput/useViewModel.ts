@@ -1,6 +1,5 @@
 import {useCallback, useState} from 'react';
 import type {
-  KeyboardTypeOptions,
   NativeSyntheticEvent,
   TextInputChangeEventData,
   TextInputFocusEventData,
@@ -8,6 +7,7 @@ import type {
 
 import {useTheme} from '@hooks';
 import type {Color} from '@theme';
+import {TranslationKeys, useTranslation} from '@translations';
 import debounce from 'lodash/debounce';
 
 import type {ViewModelProps} from './types';
@@ -20,7 +20,9 @@ const useViewModel = ({
   isPassword,
   useDebounce,
   error,
+  placeholder,
 }: ViewModelProps) => {
+  const {translate} = useTranslation();
   const {getColor} = useTheme();
 
   const [borderColor, setBorderColor] = useState<Color>('secondary');
@@ -69,15 +71,15 @@ const useViewModel = ({
       }
     : icon;
 
-  const keyboardType: KeyboardTypeOptions = isPassword
-    ? 'visible-password'
-    : 'default';
+  const placeHolderText = translate({
+    text: placeholder as TranslationKeys,
+  });
 
   return {
     isPassword,
-    keyboardType,
     rightIcon,
     hidePassword,
+    placeHolderText,
     borderColor: getColor(error ? 'error' : borderColor),
     onFocusHandler,
     onBlurHandler,

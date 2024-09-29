@@ -1,6 +1,6 @@
 import {useTheme} from '@hooks';
 import {FONTS} from '@theme';
-import {useTranslation} from '@translations';
+import {TranslationKeys, useTranslation} from '@translations';
 
 import type {ViewModelProps} from './types';
 
@@ -10,12 +10,13 @@ const useViewModel = ({
   color,
   font = 'DEFAULT-PETITE/REGULAR',
 }: ViewModelProps) => {
-  const {t, exists} = useTranslation();
+  const {translate} = useTranslation();
   const {getColor} = useTheme();
 
-  const textContent =
-    text && exists(text?.t) ? t(text.t, text?.params || {}) : children;
-
+  const textContent = translate({
+    fb: children ? children : typeof text === 'string' ? text : '',
+    text: text as TranslationKeys,
+  });
   const textColor = getColor(color);
   const fontStyle = FONTS?.[font] ?? FONTS['DEFAULT-PETITE/REGULAR'];
 

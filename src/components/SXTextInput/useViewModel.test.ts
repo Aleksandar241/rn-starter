@@ -115,7 +115,7 @@ describe('useViewModel', () => {
     const {result} = renderHook(() =>
       useViewModel({
         onChange: onChangeMock,
-        error: 'error',
+        error: 'error' as any,
       }),
     );
 

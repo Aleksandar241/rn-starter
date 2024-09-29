@@ -1,13 +1,16 @@
 import React, {forwardRef} from 'react';
-import {TextInput, View} from 'react-native';
+import {View} from 'react-native';
+import {TextInput} from 'react-native-gesture-handler';
+
+import {TranslationKeys} from '@translations';
 
 import {SXIcon, SXIconProps} from '../SXIcon';
-import SXText from '../SXText/SXText.view';
+import {SXText} from '../SXText';
 import styles from './styles';
-import {SXTextInputProps, SXTextInputRef} from './types';
+import {Props} from './types';
 import useViewModel from './useViewModel';
 
-const SXTextInput: SXTextInputProps = forwardRef(
+const SXTextInput = forwardRef<TextInput, Props>(
   (
     {
       testID = 'SX-TEXT-INPUT',
@@ -20,22 +23,25 @@ const SXTextInput: SXTextInputProps = forwardRef(
       onFocus,
       onBlur,
       onChange,
+      placeholder,
       ...rest
     },
-    ref?: SXTextInputRef,
+    ref,
   ) => {
     const {
       borderColor,
       rightIcon,
-      keyboardType,
       hidePassword,
+      placeHolderText,
       onFocusHandler,
       onBlurHandler,
       onChangeHandler,
     } = useViewModel({
+      ref,
       isPassword,
       useDebounce,
       rightIcon: rest?.rightIcon,
+      placeholder,
       onFocus,
       onBlur,
       onChange,
@@ -43,24 +49,20 @@ const SXTextInput: SXTextInputProps = forwardRef(
 
     return (
       <View style={[styles.container, containerStyle]} testID={testID}>
-        {label && (
-          <SXText
-            children={label}
-            font="DEFAULT-COZY/BOLD"
-            style={styles.label}
-          />
-        )}
+        {label ? (
+          <SXText text={label} font="DEFAULT-COZY/BOLD" style={styles.label} />
+        ) : null}
         <View style={[styles.wrapper, {borderColor}, rest?.style]}>
-          {leftIcon && (
+          {leftIcon ? (
             <View style={styles.iconContainer}>
               <SXIcon {...leftIcon} />
             </View>
-          )}
+          ) : null}
           <TextInput
-            ref={ref}
+            ref={ref as any}
             {...rest}
             secureTextEntry={hidePassword}
-            keyboardType={rest?.keyboardType ?? keyboardType}
+            placeholder={placeHolderText}
             testID="INPUT"
             style={[
               styles.textInput,
@@ -73,17 +75,13 @@ const SXTextInput: SXTextInputProps = forwardRef(
             onBlur={onBlurHandler}
             onChange={onChangeHandler}
           />
-          {rightIcon && (
+          {rightIcon ? (
             <View style={[styles.iconContainer, styles.rightIcon]}>
               <SXIcon {...(rightIcon as SXIconProps)} />
             </View>
-          )}
+          ) : null}
         </View>
-        <SXText
-          children={error ?? ''}
-          color="error"
-          font="DEFAULT-COMPACT/BOLD"
-        />
+        <SXText text={error} color="error" font="DEFAULT-COMPACT/BOLD" />
       </View>
     );
   },

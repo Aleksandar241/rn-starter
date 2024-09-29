@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   textDefault: {
+    width: '100%',
     flexWrap: 'wrap',
   },
 });

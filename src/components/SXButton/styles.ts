@@ -7,6 +7,9 @@ const styles = StyleSheet.create({
     borderRadius: Radius.Petite,
     padding: Spacings.Compact,
   },
+  text: {
+    textAlign: 'center',
+  },
 });
 
 export default styles;

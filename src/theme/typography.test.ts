@@ -1,26 +1,8 @@
-import {
-  FONTS,
-  FONT_FAMILIES,
-  FONT_WEIGHTS,
-  FontTypes,
-  generateFontFamily,
-  generateFonts,
-} from './typography';
+import {FONTS, FONT_FAMILIES, FontTypes, generateFonts} from './typography';
 
 jest.mock('@utils', () => ({
   ...jest.requireActual('@utils'),
 }));
-
-describe('generateFontFamily', () => {
-  it('should generate correct font family string', () => {
-    expect(generateFontFamily(FONT_FAMILIES.POPPINS, FONT_WEIGHTS.BOLD)).toBe(
-      'Poppins-Bold',
-    );
-    expect(generateFontFamily(FONT_FAMILIES.POPPINS, FONT_WEIGHTS.LIGHT)).toBe(
-      'Poppins-Light',
-    );
-  });
-});
 
 describe('generateFonts', () => {
   const prefix = FontTypes.DEFAULT;

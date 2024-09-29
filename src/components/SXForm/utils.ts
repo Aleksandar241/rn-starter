@@ -1,4 +1,4 @@
-import {createElement, memo} from 'react';
+import {createElement, forwardRef, memo} from 'react';
 import {
   Controller,
   ControllerFieldState,
@@ -42,38 +42,41 @@ export const createControlledComponent = <T extends object>(
     return value && error && change;
   });
 
-  const ControlledComponent = ({name, control, ...restProps}: BaseProps<T>) => {
-    const render: any = ({
-      field,
-      fieldState,
-    }: {
-      field: ControllerRenderProps<T>;
-      fieldState: ControllerFieldState;
-    }) => {
-      const childProps: any = {
-        onBlur: () => {
-          field.onBlur();
-          // @ts-ignore
-          if (restProps.onBlur) {
+  const ControlledComponent = forwardRef<any, BaseProps<T>>(
+    ({name, control, ...restProps}, ref) => {
+      const render: any = ({
+        field,
+        fieldState,
+      }: {
+        field: ControllerRenderProps<T>;
+        fieldState: ControllerFieldState;
+      }) => {
+        const childProps: any = {
+          onBlur: () => {
+            field.onBlur();
             // @ts-ignore
-            restProps.onBlur();
-          }
-        },
-        [options?.changeField as string]: field.onChange,
-        error: fieldState.error?.message,
-        ...(options?.valueField && {[options.valueField]: field.value}),
-        ...restProps,
+            if (restProps.onBlur) {
+              // @ts-ignore
+              restProps.onBlur();
+            }
+          },
+          [options?.changeField as string]: field.onChange,
+          error: fieldState.error?.message,
+          ...(options?.valueField && {[options.valueField]: field.value}),
+          ...restProps,
+          ref,
+        };
+
+        return createElement(MemoizedComponent, childProps);
       };
 
-      return createElement(MemoizedComponent, childProps);
-    };
-
-    return createElement(Controller, {
-      name,
-      control,
-      render,
-    });
-  };
+      return createElement(Controller, {
+        name,
+        control,
+        render,
+      });
+    },
+  );
 
   ControlledComponent.displayName = `SXControlled${Component.displayName || Component.name}`;
 

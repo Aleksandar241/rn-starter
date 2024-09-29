@@ -1,6 +1,8 @@
 import type {FC} from 'react';
 import type {ViewStyle} from 'react-native';
 
+import {TranslatedTextProps} from '../../translations/types';
+
 export type ButtonType = 'primary' | 'secondary';
 
 export type ViewModelProps = {
@@ -11,7 +13,7 @@ export type ViewModelProps = {
 type Props = ViewModelProps & {
   testID?: string;
   style?: ViewStyle;
-  title: string;
+  title: TranslatedTextProps;
   onPress: () => void;
 };
 

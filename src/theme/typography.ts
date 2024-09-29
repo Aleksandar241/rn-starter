@@ -2,11 +2,6 @@ import {TextStyle} from 'react-native';
 
 import {EnumHelper} from '@utils';
 
-export const generateFontFamily = (
-  fontFamily: FONT_FAMILIES,
-  fontWeight: FONT_WEIGHTS,
-): string => `${fontFamily}-${fontWeight}`;
-
 export enum FONT_FAMILIES {
   POPPINS = 'Poppins',
 }
@@ -46,24 +41,17 @@ export const generateFonts = <T extends FontTypes>(
   fontFamily: FONT_FAMILIES,
   prefix: T,
 ): FontStyles => {
-  const fontFamilies = {
-    [FONT_WEIGHTS.THIN]: generateFontFamily(fontFamily, FONT_WEIGHTS.THIN),
-    [FONT_WEIGHTS.LIGHT]: generateFontFamily(fontFamily, FONT_WEIGHTS.LIGHT),
-    [FONT_WEIGHTS.REGULAR]: generateFontFamily(
-      fontFamily,
-      FONT_WEIGHTS.REGULAR,
-    ),
-    [FONT_WEIGHTS.MEDIUM]: generateFontFamily(fontFamily, FONT_WEIGHTS.MEDIUM),
-    [FONT_WEIGHTS.SEMI_BOLD]: generateFontFamily(
-      fontFamily,
-      FONT_WEIGHTS.SEMI_BOLD,
-    ),
-    [FONT_WEIGHTS.BOLD]: generateFontFamily(fontFamily, FONT_WEIGHTS.BOLD),
-    [FONT_WEIGHTS.EXTRA_BOLD]: generateFontFamily(
-      fontFamily,
-      FONT_WEIGHTS.EXTRA_BOLD,
-    ),
-  };
+  const generateFontFamily = (
+    fontFamily: FONT_FAMILIES,
+    fontWeight: FONT_WEIGHTS,
+  ) => `${fontFamily}-${fontWeight}`;
+
+  const fontFamilies = Object.fromEntries(
+    Object.entries(FONT_WEIGHTS).map(([_key, value]) => [
+      value,
+      generateFontFamily(fontFamily, value),
+    ]),
+  );
 
   const generateGroup = (group: string, fontSize: number) =>
     EnumHelper.getValues(FONT_WEIGHTS).reduce((acc, key) => {

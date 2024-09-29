@@ -22,7 +22,7 @@ const SXButton: SXButtonProps = ({
       onPress={onPress}
       testID={testID}
       style={[styles.button, buttonStyle, style]}>
-      <SXText children={title} />
+      <SXText text={title} style={styles.text} />
     </SXTouchable>
   );
 };

@@ -2,7 +2,7 @@ import {useCallback} from 'react';
 import {useTranslation as useTranslationI18} from 'react-i18next';
 
 import {en as primaryLang} from './locales/en';
-import {TranslationKeys, useTranslationReturn} from './types';
+import {TranslateProps, TranslationKeys, useTranslationReturn} from './types';
 
 export const useTranslation = () => {
   const {t, i18n} = useTranslationI18();
@@ -24,5 +24,19 @@ export const useTranslation = () => {
     [i18n],
   );
 
-  return {t, exists} as useTranslationReturn;
+  const translate = useCallback(
+    ({fb, text}: TranslateProps): string => {
+      if (typeof text === 'string' && exists(text)) {
+        return t(text);
+      }
+      if (typeof text === 'object' && exists(text?.t)) {
+        return t(text.t, text?.params || {});
+      }
+
+      return typeof fb === 'string' ? fb : '';
+    },
+    [exists, t],
+  );
+
+  return {exists, translate} as useTranslationReturn;
 };

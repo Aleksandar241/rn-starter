@@ -2,15 +2,13 @@ import type {FC} from 'react';
 import type {StyleProp, TextProps, TextStyle, ViewStyle} from 'react-native';
 
 import type {Color, Fonts} from '@theme';
-import type {TranslationKeys} from '@translations';
+
+import {TranslatedTextProps} from '../../translations/types';
 
 export type ViewModelProps = {
   font?: Fonts;
   color?: Color;
-  text?: {
-    t: TranslationKeys;
-    params?: Record<string, string | number>;
-  };
+  text?: TranslatedTextProps;
   children?: TextProps['children'];
 };
 
